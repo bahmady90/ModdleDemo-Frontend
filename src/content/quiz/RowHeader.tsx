@@ -7,7 +7,7 @@ export default function RowHeader(){
 
     const row = data![questionNumber];
 
-    const {question, lf} = row;
+    const {question} = row;
 
     const list = question?.list ? question?.list : "";
 

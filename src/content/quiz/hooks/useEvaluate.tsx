@@ -67,9 +67,10 @@ export function useEvaluate(){
             const type = data![questionNumber].type;
             if(type === "mc"){
                 const answers = data![questionNumber].answers;
-                const rightAnswersLength = data![questionNumber].rightAnswers.length;
+                const rightAnswersLength = (data![questionNumber].rightAnswers as number[]).length;
                 let localPoints = 0;
                 answers.forEach((answer, index) => {
+                    console.log(answer)
                     const {isRightAnswer, evaluate} = getIsRightAnswerMC(index);                                        
                     if(isRightAnswer && evaluate){
                         localPoints = localPoints + (4 / rightAnswersLength)
@@ -88,9 +89,10 @@ export function useEvaluate(){
             }
             else if(type === "matching"){
                 const answers = data![questionNumber].answers;
-                const rightAnswersLength = data![questionNumber].rightAnswers.length;
+                const rightAnswersLength = (data![questionNumber].rightAnswers as number[]).length;
                 let localPoints = 0;
                 answers.forEach((answer, index) => {
+                    console.log(answer)
                     const isRightAnswer = getIsRightAnswerMatching(index);                                         
                     if(isRightAnswer){
                         localPoints = localPoints + (4 / rightAnswersLength)

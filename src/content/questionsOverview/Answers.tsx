@@ -58,16 +58,20 @@ const Answers: React.FC<AnswersProps> = ({ question }) => {
                 <div
                     className={`absolute mt-[10%] w-fit bg-white rounded-lg border-black border-[1px] max-w-[40%]`}
                     ref={dropdownRef}
-                    /* style={{marginTop: dropdownStyle}} */
                 >   
                     Alle Antworten:
                     <ul className="py-1 text-[0.8rem] text-gray-900 gap-y-4 divide-y-[1px] divide-gray-200 w-full">
                         {Array.isArray(question.answers) &&
-                            question.answers.map((answer, index: number) => (
-                            <li className="hover:bg-gray-100 cursor-pointer" key={index}>
-                                {answer?.answer}
-                            </li>
-                        ))}
+                            question.answers.map((answer, index: number) => {
+                                if ('answer' in answer) {
+                                return (
+                                    <li className="hover:bg-gray-100 cursor-pointer" key={index}>
+                                    {answer.answer}
+                                    </li>
+                                );
+                                }
+                        return null; 
+                        })}
                     </ul>
                 </div>
             )}

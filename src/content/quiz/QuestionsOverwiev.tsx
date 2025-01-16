@@ -14,6 +14,7 @@ export default function QuestionOverwiev(){
             self-start justify-self-start ml-[5%] rounded-lg border-[1px] border-gray-verydark">
                 
             {data!.map((question, index) => {
+                console.log(question)
                 const questionSeen = scoredArray.reduce((acc, cum) => {
                     if(cum.key === index){
                         acc = true;

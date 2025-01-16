@@ -28,7 +28,7 @@ export default function AnswerMatching({ children, index}: AnswerMcProps){
 
     const optionMatchingStyling = options.length > 6 ? "h-[2.5rem] sm:h-[3rem]" : "h-[3.5rem] sm:h-[4rem]"
 
-  	const paragraphStyle = children?.length >= 60 ? "text-[0.4rem] sm:text-[0.6rem] lg:text-[0.7rem]" : "text-[0.5rem] sm:text-[0.7rem] lg:text-[0.8rem]"
+  	const paragraphStyle = typeof children === "string" && children?.length >= 60 ? "text-[0.4rem] sm:text-[0.6rem] lg:text-[0.7rem]" : "text-[0.5rem] sm:text-[0.7rem] lg:text-[0.8rem]"
 
   return (
     <div className={`flex items-center  gap-x-2 sm:gap-x-6 w-full` }>

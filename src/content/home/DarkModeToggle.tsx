@@ -1,17 +1,6 @@
 
-
-
 export default function DarkModeTuggle() {
 
-
-    /* useEffect(() => {
-        
-        if (setDarkMode) {
-          document.documentElement.classList.add('dark');
-        } else {
-          document.documentElement.classList.remove('dark');
-        }
-      }, [setDarkMode]); */
    
     return (
       

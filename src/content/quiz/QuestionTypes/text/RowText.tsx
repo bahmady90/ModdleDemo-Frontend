@@ -1,7 +1,8 @@
-import { Atom } from "react-loading-indicators";
-import { useQuizContext } from "../../../../context/quiz-context";
 import useHandleText from "../../hooks/useHandleText";
 import Bubble from "../../Bubble";
+
+import { Atom } from "react-loading-indicators";
+import { useQuizContext } from "../../../../context/quiz-context";
 
 
 

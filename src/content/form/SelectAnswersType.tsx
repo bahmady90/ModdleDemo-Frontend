@@ -1,6 +1,7 @@
+
 type SelectComponentProps = {
     value: string,
-    setValue: (e) => void,
+    setValue: (e : string) => void,
     label: string
 }
 
