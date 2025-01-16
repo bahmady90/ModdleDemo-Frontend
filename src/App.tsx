@@ -11,7 +11,7 @@ import NotFound from "./NotFound";
 
 /* import Footer from "./Footer"; */
 
-export const rightAdminKey = "Qt>SSF6XAz";
+
 
 
 

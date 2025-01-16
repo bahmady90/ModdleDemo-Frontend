@@ -3,13 +3,6 @@ import { AnswerNumber, AnswersMatching, AnswersMC, AnswerText, ErrorType, RightA
 
 
 
-export const BASE_URL = "http://localhost:3000";
-
-
-
-
-
-
 export type Action = 
 
     {type: "SET_ERROR_QUESTION"} |
@@ -308,7 +301,10 @@ function formReducer(state: FormState, action: Action): FormState {
         case "DELETE_OPTION":
             return {
                 ...state,
-                options: state.options.filter((option, index) => index !== action.payload)
+                options: state.options.filter((option, index) => {
+                    console.log(option)
+                    return index !== action.payload
+                })
             }
         case "ADD_OPTION": 
             return {
@@ -352,12 +348,18 @@ function formReducer(state: FormState, action: Action): FormState {
         case "DELETE_MC_OPTION":
             return {
                 ...state,
-                answersMC: state.answersMC.filter((answer, index) => index !== action.payload)
+                answersMC: state.answersMC.filter((answer, index) => {
+                    console.log(answer)
+                    return index !== action.payload
+                })
             }
         case "DELETE_MATCHING_OPTION":
             return {
                 ...state,
-                answersMatching: state.answersMatching.filter((answer, index) => index !== action.payload)
+                answersMatching: state.answersMatching.filter((answer, index) => {
+                    console.log(answer)
+                    return index !== action.payload
+                })
             }
         case "ADD_OPTION_MC":
             return {

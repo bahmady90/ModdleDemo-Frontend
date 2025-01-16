@@ -1,8 +1,8 @@
-import { FormEvent, useState } from "react";
 import Button from "../../Button";
-import { useFormContext } from "../../context/form-context";
-import { rightAdminKey } from "../../App";
 import ErrorMessage from "../form/ErrorMessage";
+
+import { useFormContext } from "../../context/form-context";
+import { FormEvent, useState } from "react";
 
 
 export default function AdminLogin(){
@@ -12,7 +12,7 @@ export default function AdminLogin(){
 
     function handleSignInForm(e: FormEvent<HTMLFormElement>){
         e.preventDefault();
-        if(adminKey === rightAdminKey){
+        if(adminKey === "Qt>SSF6XAz"){
             dispatch({type: "SET_ISADMIN", payload: true})
             dispatch({type : "SET_OPENMODALADMINLOGIN"})
             localStorage.setItem("isAdmin", "true");
