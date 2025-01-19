@@ -5,23 +5,40 @@ import RowNumber from "./QuestionTypes/number/RowNumber";
 import QuestionOverwiev from "./QuestionsOverwiev";
 import QuizBottom from "./QuizBottom";
 import RowText from "./QuestionTypes/text/RowText";
+import SubHeader from "../../SubHeader";
 
 import {Row, useQuizContext } from "../../context/quiz-context"
-import { getQuizTitle } from "../../functions";
+import { getQuestions } from "../../functions";
+import { useParams } from "react-router-dom";
+import { useEffect } from "react";
+import { OrbitProgress } from "react-loading-indicators";
+
 
 
 
 function Quiz() {
   
-  const {loading, data, questionNumber, scoredArray} = useQuizContext();
+  const {loading, data, questionNumber, scoredArray, dispatch} = useQuizContext();
+
+  const {lf} = useParams();
+
+  console.log(scoredArray)
+  
+
+  useEffect(() => {
+      getQuestions(dispatch, lf as string);
+  }, []); 
+  
 
 
   if(loading === true){
-    return <h1>Loading Data...</h1>
+    return    (<div className="w-full h-full flex justify-center items-center">
+                <OrbitProgress color="#1e40af" size="large" text="" textColor="" />
+              </div>) 
   }
   if(loading === false) {
 
-    console.log(scoredArray);
+    console.log(data);
 
 
     const row : Row = data![questionNumber];
@@ -29,10 +46,7 @@ function Quiz() {
 
     return (
       <main className=" min-h-svh">
-        <header className="flex gap-x-2 items-center justify-self-center mb-6 mt-4">
-          <h2 className="text-[2rem] text-gray-verydark font-semibold">LF-01:</h2>
-          <p className="text-[1.5rem] italic underline text-gray-700">{getQuizTitle(1)}</p>
-        </header>
+        <SubHeader/>
         <RowHeader/>
         <div className="w-[95%] sm:grid sm:grid-cols-[1fr_1fr] h-fit mt-[3%] ml-[5%] gap-x-[5%] mb-2">
           <div className="flex justify-end items-center min-h-full"> 

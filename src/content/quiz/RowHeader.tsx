@@ -15,7 +15,7 @@ export default function RowHeader(){
 
     const len = question.question.length;
 
-    const questionStyle = `${len > 150? "text-[0.6rem] sm:text-[0.8rem]" : "text-[0.8rem] sm:text-[1.2rem]"}`
+    const questionStyle = `${len > 150? "text-[0.7rem] sm:text-[1rem]" : "text-[0.8rem] sm:text-[1.2rem]"}`
 
     const questionListElementStyle = `grid grid-cols-2 gap-x-2 ml-4 text-[0.9rem]`
 

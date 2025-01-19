@@ -4,7 +4,7 @@ export default function StatsToggle(){
 
     return (
 
-        <svg fill="currentColor" className="text-yellow-500 hover:text-yellow-400 w-[2rem] h-[2rem] cursor-pointer" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg" transform="matrix(1, 0, 0, 1, 0, 0)rotate(0)">
+        <svg fill="currentColor" className="text-yellow-500 hover:text-yellow-400 h-[1.5rem] w-[1.5rem] sm:w-[2rem] sm:h-[2rem] cursor-pointer" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg" transform="matrix(1, 0, 0, 1, 0, 0)rotate(0)">
         <g id="SVGRepo_bgCarrier" strokeWidth="0"/>
         <g id="SVGRepo_tracerCarrier" strokeLinecap="round" strokeLinejoin="round"/>
         <g id="SVGRepo_iconCarrier">

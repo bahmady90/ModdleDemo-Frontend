@@ -1,8 +1,9 @@
+import Button from "../../Button";
+import ErrorMessage from "./ErrorMessage";
+
 import { ChangeEvent } from "react"
 import { basicInputStyles } from "./FormQuestionPage";
-import Button from "../../Button";
 import { useFormContext } from "../../context/form-context";
-import ErrorMessage from "./ErrorMessage";
 import { useForm } from "./hooks/useForm";
 
 
@@ -31,31 +32,29 @@ export default function RightAnswers(){
     function handleSetAnswer(e: ChangeEvent<HTMLInputElement>){
         const input = e.target.value;
         //that was kinda stupid because i need the state as the RightAnswer-type, ^
-        // but the same time enable the user to use ",", wich resultet in these computations
+        // but the same time enable the user to use "," wich resultet in these computations
         if(type === "mc"){
             setValueMC(input);
-            const numberArray = input.split(",").filter(item => item.trim() !== "").map(Number).filter(item => !isNaN(item));
+            const numberArray = input.split(",").filter(item => item.trim() !== "").map(item => Number(item) - 1).filter(item => !isNaN(item));
             dispatch({type: "SET_RIGHTANSWER", payload: numberArray });
             console.log(rightAnswers)
-            if((rightAnswers.length === 0) && checkErros){
+            if((numberArray.length === 0) && checkErros){
                 dispatch({type: "SET_ERROR_RIGHTANSWER"})
-            } else if(rightAnswers.length !== 0){
+            } else if(numberArray.length !== 0){
                 dispatch({type: "REMOVE_ERROR_RIGHTANSWER"})
             } 
         }
         else if(type === "matching"){
             setValueMatching(input);
-            const numberArray = input.split(",").filter(item => item.trim() !== "").map(Number).filter(item => !isNaN(item));
-            console.log(answersMatching.length);
-            console.log(rightAnswers.length)
+            const numberArray = input.split(",").filter(item => item.trim() !== "").map(item => Number(item) - 1).filter(item => !isNaN(item));
             dispatch({type: "SET_RIGHTANSWER", payload: numberArray});
             if((numberArray.length === 0) && checkErros){
                 dispatch({type: "SET_ERROR_RIGHTANSWER"})
             } else if(numberArray.length !== 0){
                 dispatch({type: "REMOVE_ERROR_RIGHTANSWER"})
-                if(rightAnswers.length !== answersMatching.length){
+                if(numberArray.length !== answersMatching.length){
                     dispatch({type: "SET_ERROR_MATCHINGERROR"})
-                } else if(rightAnswers.length === answersMatching.length){
+                } else if(numberArray.length === answersMatching.length){
                     dispatch({type: "REMOVE_ERROR_MATCHINGERROR"})
                 }
             } 	

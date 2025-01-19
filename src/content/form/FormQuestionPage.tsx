@@ -5,9 +5,11 @@ import Answers from "./Answers";
 import RightAnswers from "./RightAnswers";
 import DivideLine from "./DivideLine";
 
+
 import { Toaster } from 'react-hot-toast';
 import { useForm } from "./hooks/useForm";
 import { useFormContext } from "../../context/form-context";
+import SubHeader from "../../SubHeader";
 
 
 
@@ -21,19 +23,20 @@ export default function FormQuestionPage(){
 
     const {id} = useFormContext()
 
-    /* console.log(errors) */
-
-
+    
     const {handleSubmit, handleUpdate,  } = useForm();
 
 
     return (
-        <div className="w-full min-h-full flex flex-col bg-gray-50 pb-10">
-            <Toaster position="top-center"/>
+        <>
+        <Toaster position="top-center"/>
+        <SubHeader/>
+        <div className="w-full min-h-full flex flex-col bg-gray-50 pb-10 mt-[4%]">
             <form 
                 className="w-full h-full flex flex-col items-center gap-y-[3rem] font-sans"
                 onSubmit={id ? handleUpdate : handleSubmit}
             >
+                <DivideLine/>
                 <div className="w-[70%] grid grid-cols-2">
                     <SelectType
                         label="Fragentyp"
@@ -50,6 +53,8 @@ export default function FormQuestionPage(){
                 <RightAnswers/>   
             </form>
         </div>
+
+    </>
              
     )
     

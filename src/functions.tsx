@@ -1,3 +1,5 @@
+import { Dispatch } from "react"
+import { Action, BASE_URL } from "./context/quiz-context"
 
 export function getQuizTitle(num: number){
     switch(num){
@@ -38,5 +40,31 @@ export function formatInput(value: string){
 export function formatString(value: string){
     const result = value.length > 60 ?  value.slice(0,60) + "..." : value;
     return result
+}
+
+export async function getQuestions(dispatch: Dispatch<Action>, lf : string) {
+
+    const lfNumber = Number(lf[1]);
+    console.log("lfNumberInsideFunktion" + lfNumber)
+    dispatch({ type: "SET_LOADING_TRUE" });
+    try {
+        const res = await fetch(`${BASE_URL}/${lfNumber}/questions`);
+        if (!res.ok) {
+            dispatch({type: "SET_ERROR", payload: "Network response was not ok"});
+            return; // stop execution
+        }
+        const data = await res.json();
+        dispatch({ type: "GET_DATA", payload: data });
+    } catch (error) {
+        if (error instanceof Error) {
+            // Use error.message only if error is an instance of Error
+            dispatch({type: "SET_ERROR", payload: error.message});
+        } else {
+            // Fallback for unknown error shapes
+            dispatch({type: "SET_ERROR", payload: "An unknown error occurred"});
+        }
+    } finally {
+        dispatch({ type: "SET_LOADING_FALSE" });
+    }
 }
 

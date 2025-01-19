@@ -26,31 +26,38 @@ export default function Answers(){
         const value = e.target.value
         if(type === "mc"){
             dispatch({type: "SET_ANSWERMC", payload: {value, index}})
-            let isEmpty = false
-            answersMC.forEach((answer) => {
-                if(answer.answer.length === 0) {
-                    isEmpty = true
+            const updatedAnswers = answersMC.map((answer, i) => {
+                if(i === index){
+                    return {...answer, answer : value}
+                }
+                else {
+                    return answer
                 }
             })
+            const isEmpty = updatedAnswers.some((answer) => answer.answer.length === 0)
             if(isEmpty){
                 dispatch({type: "SET_ERROR_OPTIONS_MC"})
             } else {
                 dispatch({type: "REMOVE_ERROR_OPTIONS_MC"})
             } 
-        } else {
-            dispatch({type: "SET_ANSWERMATCHING", payload: {value, index}})
-            let isEmpty = false
-            answersMatching.forEach((answer) => {
-                if(answer.answer.length === 0) {
-                    isEmpty = true
-                }
-            })
-            if(isEmpty){
-                dispatch({type: "SET_ERROR_OPTIONS_MATCHING"})
-            } else {
-                dispatch({type: "REMOVE_ERROR_OPTIONS_MATCHING"})
-            } 
         }
+        else {
+        dispatch({type: "SET_ANSWERMATCHING", payload: {value, index}})
+        const updatedAnswers = answersMatching.map((answer, i) => {
+            if(i === index){
+                return {...answer, answer : value}
+            }
+            else {
+                return answer
+            }
+        })
+        const isEmpty = updatedAnswers.some((answer) => answer.answer.length === 0)
+        if(isEmpty){
+            dispatch({type: "SET_ERROR_OPTIONS_MATCHING"})
+        } else {
+            dispatch({type: "REMOVE_ERROR_OPTIONS_MATCHING"})
+        } 
+    }
         
     }
 

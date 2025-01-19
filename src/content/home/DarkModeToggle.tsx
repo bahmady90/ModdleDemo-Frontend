@@ -5,7 +5,7 @@ export default function DarkModeTuggle() {
     return (
       
     
-        <svg fill="currentColor" className="w-[2rem] h-[2rem] cursor-pointer text-gray-verydark hover:text-gray-dark" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg">
+        <svg fill="currentColor" className="h-[1.5rem] w-[1.5rem] sm:w-[2rem] sm:h-[2rem] cursor-pointer text-gray-verydark hover:text-gray-dark" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg">
             <g id="SVGRepo_bgCarrier" strokeWidth="0"/>
             <g id="SVGRepo_tracerCarrier" strokeLinecap="round" strokeLinejoin="round"/>
             <g id="SVGRepo_iconCarrier">

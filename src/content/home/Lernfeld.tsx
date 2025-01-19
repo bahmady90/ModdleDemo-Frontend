@@ -5,10 +5,11 @@ type LernfeldProps = {
     name: string,
     title: string,
     src: string,
-    lf: number
+    lf: number,
+    disabled: boolean
 }
 
-export default function Lernfeld({name, title, src,lf} : LernfeldProps) {
+export default function Lernfeld({name, title, src,lf, disabled} : LernfeldProps) {
 
     return (
 
@@ -17,7 +18,7 @@ export default function Lernfeld({name, title, src,lf} : LernfeldProps) {
             <div className="relative h-full grid grid-rows-[1fr_1fr_1fr]"> 
                 <p className="ml-1 md:ml-2 underline self-center text-gray-dark text-[0.7rem] sm:text-[1rem] lg:text-[1.2rem] xl:text-[1.5rem] font-sans group-hover:text-black">{name}</p>
                 <p className="mx-1 md:mx-2 text-center text-[0.4rem] sm:text-[0.6rem] lg:text-[0.8rem] xl:text-[1rem] text-gray-800 group-hover:text-blue-dark ">{title}</p>
-                <DropdownMenu lf={lf}/>
+                <DropdownMenu lf={lf} disabled={disabled}/>
             </div>      
         </div> 
 

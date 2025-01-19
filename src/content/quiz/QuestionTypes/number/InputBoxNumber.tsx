@@ -9,7 +9,8 @@ export default function InputBoxNumber(){
 
     const { dispatch, data, questionNumber, isSubmitted} = useQuizContext();
 
-    let value = data![questionNumber].answers[0].number;
+    // @ts-expect-error: TypeScript is complaining about type mismatch, but this is intended
+    let value = data![questionNumber].answers.number;
 
     if(value === null){
         value = "";
@@ -39,10 +40,10 @@ export default function InputBoxNumber(){
 
     return (
         <input
-            /* disabled={isSubmitted} */
+            disabled={isSubmitted}
             type="number" 
             value={value} 
-            className={`text-center w-12 h-6 sm:w-14 sm:h-8 ${inputBoxNumberStyles} rounded-lg outline-none text-[0.6rem] `}
+            className={`text-center w-12 h-6 sm:w-14 sm:h-8 ${inputBoxNumberStyles} rounded-lg outline-none text-[0.6rem] disabled:cursor-not-allowed `}
             onChange={handleInputboxChange}
         >
         

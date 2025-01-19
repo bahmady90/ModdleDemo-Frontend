@@ -2,6 +2,7 @@ import Answers from "./Answers";
 import useQuestionsOverview from "./hooks/useQuestionsOverview";
 import FormfilterId from "./FormfilterId";
 import FilterType from "./FilterType";
+import SubHeader from "../../SubHeader";
 
 import { useFormContext } from "../../context/form-context";
 import { formatString } from "../../functions";
@@ -12,6 +13,8 @@ import { useNavigate, useParams } from "react-router-dom";
 import { MdDelete } from "react-icons/md";
 import { CiEdit } from "react-icons/ci";
 import { useForm } from "../form/hooks/useForm";
+import { OrbitProgress } from "react-loading-indicators";
+
 
 
 
@@ -71,7 +74,6 @@ export default function QuestionsOverviewPage(){
         if(filterById){
             if(filterByType !== "" && filterByType !== "*"){
                 setFilteredQuestions(questions.filter((question) => question.type === filterByType && Number(question.id) === Number(filterById)))
-
             } else {
                 setFilteredQuestions(
                     questions.filter((question) => Number(question.id) === Number(filterById))
@@ -83,19 +85,22 @@ export default function QuestionsOverviewPage(){
 
 
     if(loading === "Lade fragen..."){
-        return <h1>Lade Fragen...</h1>
+
+        return (
+            <div className="w-full h-full flex justify-center items-center">
+                <OrbitProgress color="#1e40af" size="large" text="" textColor="" />
+            </div>
+        )
     }
 
     else if(loading === false) {
 
-        
         return(
-
         <>
-        <h1 className="justify-self-center text-[1.5rem] mb-8">Lernfeld {lf![1]}</h1>
-        <main className="w-[95%] justify-self-center flex flex-col bg-slate-200 rounded-lg font-sans shadow-[-1px_-1px_13px_-6px_rgba(0,_0,_0,_0.1)]">
-            <Toaster position="top-center" />
-            <div className={`flex w-full min-h-[3rem] items-center justify-start`}>
+        <Toaster position="top-center" />
+        <SubHeader/>
+        <main className="w-[95%] justify-self-center flex flex-col bg-slate-200 rounded-lg font-sans shadow-[-1px_-1px_13px_-6px_rgba(0,_0,_0,_0.1)] mt-[4%]">
+            <div className={`flex w-full min-h-[3rem] items-center justify-between`}>
                     <FormfilterId filterById={filterById} setFilterById={setFilterById} handleFilterId={handleFilterId} />
                     <FilterType filterByType={filterByType} setFilterByType={setFilterByType}/>
                     <div className="w-[30%] text-start font-semibold text-[1.2rem]">Frage</div>
@@ -107,17 +112,17 @@ export default function QuestionsOverviewPage(){
                 <h1 className="py-12 self-center font-semibold text-[1.2rem] text-red-600 ">Keine Ergebnisse zu den Filtern gefunden. Bitte passe deine Filter an!</h1> :
             
             
-            <ul className="rounded-lg mb-8">
+            <ul className="rounded-lg mb-8 text-slate-700">
             {arrayToMap.map(((question, index) =>{
 
                 const bgStyle = (index + 1) % 2 === 0 ? "bg-white" : "bg-gray-100"
                 
                 return (
 
-                    <li className={`flex w-full h-[3rem] items-center justify-center ${bgStyle}`} key={index}>
-                        <div className="w-[5%] h-full pl-1 flex items-center justify-center">{question.id}</div>
-                        <div className="w-[10%] h-full pl-1 flex items-center justify-center">{question.type}</div>
-                        <div className="w-[30%] h-full pl-1 flex items-center">{formatString(question.question.question)}</div>
+                    <li className={`flex w-full h-[3rem] items-center justify-start ${bgStyle}`} key={index}>
+                        <p className="w-[7%] h-full pl-1 flex items-center justify-center">{question.id}</p>
+                        <p className="w-[7%] h-full pl-1 flex items-center justify-center">{question.type}</p>
+                        <p className="w-[30%] h-full pl-1 flex items-center justify-start ml-6">{formatString(question.question.question)}</p>
                         <Answers question={question}/>
                         <div className="w-[10%] h-full pl-1 flex items-center justify-center">{question.rightAnswers.toString()}</div>
                         <div className="flex ml-[5%] gap-x-3">

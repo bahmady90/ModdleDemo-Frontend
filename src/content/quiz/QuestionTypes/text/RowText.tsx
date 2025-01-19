@@ -38,6 +38,7 @@ export default function RowText(){
             >
             <label htmlFor="message" className="block mb-2 text-[1.2rem]  text-gray-700 dark:text-white justify-self-center">Deine Antwort:</label>
             <textarea
+                disabled={isSubmitted}
                 value={text} 
                 id="message"  
                 className={`block p-2.5  min-w-[35rem] min-h-[20rem] text-[0.8rem] text-gray-700 bg-gray-50 rounded-lg border border-gray-300 

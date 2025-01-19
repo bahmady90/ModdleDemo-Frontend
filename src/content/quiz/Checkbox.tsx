@@ -1,3 +1,4 @@
+import { useQuizContext } from "../../context/quiz-context"
 
 
 type CheckboxProps = {
@@ -8,13 +9,15 @@ type CheckboxProps = {
 
 export default function Checkbox({checked, handleCheckboxChange} : CheckboxProps){
 
+    const {isSubmitted} = useQuizContext();
+
 
     return (
         <input
-            /* disabled={isSubmitted} */ 
+            disabled={isSubmitted} 
             type="checkbox" 
             checked={checked} 
-            className="w-3 sm:w-4 lg:w-5 h-3 sm:h-4 lg:h-5 rounded-lg accent-gray-verydark"
+            className="w-3 sm:w-4 lg:w-5 h-3 sm:h-4 lg:h-5 rounded-lg accent-gray-verydark disabled:cursor-not-allowed"
             onChange={handleCheckboxChange}
         >
         

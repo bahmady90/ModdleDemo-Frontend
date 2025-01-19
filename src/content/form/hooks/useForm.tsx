@@ -220,9 +220,13 @@ export function useForm(){
                 toast.error("Ein Fehler ist aufgetreten: " + (data.message || "Unknown error"));
                 return; 
               }
-              getQuestions()
-              toast.success("Frage wurde erfolgreich gelöscht!");
-              
+            let test = false;
+            await getQuestions();
+            test = true;
+            if(test){
+                toast.success("Frage wurde erfolgreich gelöscht!");
+            }
+               
         }
         
          catch(error){

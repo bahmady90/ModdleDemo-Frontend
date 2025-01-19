@@ -1,5 +1,6 @@
 import { useQuizContext } from "../../../context/quiz-context";
 
+
 export function useEvaluate(){
 
     const {data, questionNumber, scoredArray, dispatch} = useQuizContext();
@@ -52,8 +53,9 @@ export function useEvaluate(){
 
         // function that returns a boolean if answer is right or wrong for type number
         function getIsRightAnswerNumber(){
-            const result = data![questionNumber].answers[0].number;
-            const rightAnswer = data![questionNumber].rightAnswers;
+            // @ts-expect-error: TypeScript is complaining about type mismatch, but this is intended
+            const result = data![questionNumber].answers.number;
+            const rightAnswer  = data![questionNumber].rightAnswers[0];
             let isRightAnswer = false;
             if(result === rightAnswer){
                 isRightAnswer = true
@@ -125,7 +127,7 @@ export function useEvaluate(){
             const rightAnswers = data![questionNumber].rightAnswers;
             let isRightAnswer = false;
             if(Array.isArray(rightAnswers)){
-            if(rightAnswers[index] === answerNumber){
+            if(rightAnswers[index] + 1 === answerNumber){
                 isRightAnswer = true;
             }}
             return isRightAnswer

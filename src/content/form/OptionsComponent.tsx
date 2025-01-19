@@ -18,12 +18,15 @@ export default function OptionsComponent() {
     function handleOptionsChange(e: ChangeEvent<HTMLInputElement>, index: number){
         const value = e.target.value;
         dispatch({type: "SET_QUESTIONOPTIONS", payload: {value, index}});
-        let isEmpty = false
-        options.forEach((option) => {
-            if(option.length === 0) {
-                isEmpty = true
+        const updatedOptions = options.map((option, i) => {
+            if(i === index){
+                return value
+            }
+            else {
+                return option
             }
         })
+        const isEmpty = updatedOptions.some((option) => option.length === 0)
         if(isEmpty){
             dispatch({type: "SET_ERROR_OPTIONS"})
         } else {

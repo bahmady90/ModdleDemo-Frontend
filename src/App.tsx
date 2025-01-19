@@ -29,7 +29,7 @@ export default function App(){
                         <Routes>
                             <Route path="*" element={<NotFound />} />
                             <Route path="/" element={<Home/>}></Route>
-                            <Route path=":lf/Quiz" element={<Quiz/>}></Route>
+                            <Route path="/:lf/Quiz" element={<Quiz/>}></Route>
                             <Route
                                 path=":lf/Frage-hinzufügen"
                                 element={

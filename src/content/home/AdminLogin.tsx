@@ -24,7 +24,7 @@ export default function AdminLogin(){
     console.log(isAdmin);
 
     return (
-        <form className="w-[30rem] h-[15rem] flex flex-col items-center gap-y-4 justify-center" onSubmit={handleSignInForm}>
+        <form className=" w-[20rem] sm:w-[30rem] h-[15rem] flex flex-col items-center gap-y-4 justify-center" onSubmit={handleSignInForm}>
             <h1 className="text-gray-verydark font-semibold text-[1.3rem] mt-2">Login als Admin</h1>
             <div className="w-full flex flex-col items-center justify-center">
                 <input

@@ -7,7 +7,7 @@ type InputBoxNumberProps = {
 
 export default function InputBoxMatching({index} : InputBoxNumberProps){
 
-    const { dispatch, data, questionNumber} = useQuizContext();
+    const { dispatch, data, questionNumber, isSubmitted} = useQuizContext();
 
     let value = data![questionNumber].answers[index].number;
 
@@ -30,10 +30,10 @@ export default function InputBoxMatching({index} : InputBoxNumberProps){
 
     return (
         <input
-            /* disabled={isSubmitted} */ 
+            disabled={isSubmitted} 
             type="text" 
             value={value} 
-            className="text-center w-7 h-5 border-black border-[1px] rounded-lg focus:ring-1 focus:ring-slate-400 outline-none text-[0.6rem]"
+            className="text-center w-7 h-5 border-black border-[1px] rounded-lg focus:ring-1 focus:ring-slate-400 outline-none text-[0.6rem] disabled:cursor-not-allowed"
             onChange={handleInputboxChange}
         >
         

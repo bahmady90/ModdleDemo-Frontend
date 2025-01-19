@@ -1,6 +1,7 @@
-import { createContext, Dispatch, ReactNode, useContext, useEffect, useReducer } from "react";
-import { useParams } from "react-router-dom";
+import { createContext, Dispatch, ReactNode, useContext, useReducer } from "react";
 
+
+/* export const BASE_URL = "http://localhost:3000"; */
 
 export const BASE_URL = "https://moodle-demo-backend.vercel.app";
 
@@ -11,23 +12,12 @@ export type Answer = {
     text?: string
 }
 
-export type Answers = Array<Answer> ;
+export type Answers = Array<Answer>;
 
 
 export type Solution = string;
 
-export type Explanation = {
-    solution: string,
-    type: string,
-}
 
-export type Explanations = {
-    solutions?: Array<Explanation>,
-    type: string,
-    solution?: string
-
-
-}
 
 export type Question = {
     image?: string,
@@ -36,7 +26,7 @@ export type Question = {
     list: Array<string>
 }
 
-export type RightAnswers = Array<number> | number;
+export type RightAnswers = Array<number>;
 
 export type Row = {
     answers: Answers,
@@ -70,8 +60,8 @@ export type Action =
     {type: "PUSH_SCOREARRAY", payload: {score: number, key: number, explanation?: string }} |
     {type: "UPDATE_SCOREARRAY", payload: {score: number, key: number, explanation?: string }} |
     {type: "SUBMIT_QUIZ"} |
-    {type: "RESET_QUIZ"} |
-    {type: "CHANGE_QUIZ_BOOLEAN"}
+    {type: "RESET_QUIZ"} 
+    
     
 export type Score = {
     score: number,
@@ -88,7 +78,6 @@ export type Quizstate = {
     openModal: boolean,
     scoredArray: Array<Score>,
     isSubmitted: boolean,
-    resetQuiz: boolean
 }
 
 export type QuizContextProviderProps = {
@@ -107,7 +96,6 @@ const initialState : Quizstate= {
     openModal: false,
     scoredArray: [],
     isSubmitted: false,
-    resetQuiz: false
 }
 
 const QuizContext = createContext<QuizContextValue | null>(null);
@@ -218,12 +206,7 @@ function quizReducer(state: Quizstate, action: Action): Quizstate {
                     if(state.questionNumber === rowIndex){
                         return {
                             ...row,
-                            answers: row.answers.map((answer) => {
-                                return {
-                                    ...answer,
-                                    number: action.payload
-                                }
-                            })
+                            answers: {...row.answers, number: action.payload}
                         }
                     } else {
                         return row
@@ -291,11 +274,6 @@ function quizReducer(state: Quizstate, action: Action): Quizstate {
         case "RESET_QUIZ":
             return initialState
         
-        case "CHANGE_QUIZ_BOOLEAN":
-            return {
-                ...state,
-                resetQuiz: !state.resetQuiz
-            }
         
             
         default: return state;
@@ -307,41 +285,7 @@ function quizReducer(state: Quizstate, action: Action): Quizstate {
 
 export default function QuizContextProvider({children} : QuizContextProviderProps){
 
-    const [{data, loading, error, questionNumber, openModal, scoredArray, isSubmitted, loadingAi, resetQuiz}, dispatch] = useReducer(quizReducer, initialState);
-
-
-    const { lf } = useParams(); 
-
-    const lfNumber = lf ? Number(lf[1]) : 1;
-
-    useEffect(() => {
-
-        async function getQuestions() {
-            dispatch({ type: "SET_LOADING_TRUE" });
-            try {
-                const res = await fetch(`${BASE_URL}/${lfNumber}/questions`);
-                if (!res.ok) {
-                    dispatch({type: "SET_ERROR", payload: "Network response was not ok"});
-                    return; // stop execution
-                }
-                const data = await res.json();
-                dispatch({ type: "GET_DATA", payload: data });
-            } catch (error) {
-                if (error instanceof Error) {
-                    // Use error.message only if error is an instance of Error
-                    dispatch({type: "SET_ERROR", payload: error.message});
-                } else {
-                    // Fallback for unknown error shapes
-                    dispatch({type: "SET_ERROR", payload: "An unknown error occurred"});
-                }
-            } finally {
-                dispatch({ type: "SET_LOADING_FALSE" });
-            }
-        }
-
-        getQuestions();
-
-    }, [resetQuiz]); // Don't include `dispatch` in dependencies if it doesn't change
+    const [{data, loading, error, questionNumber, openModal, scoredArray, isSubmitted, loadingAi}, dispatch] = useReducer(quizReducer, initialState);
 
 
     const context : QuizContextValue = {
@@ -353,7 +297,6 @@ export default function QuizContextProvider({children} : QuizContextProviderProp
         openModal,
         scoredArray,
         isSubmitted,
-        resetQuiz,
         dispatch
     }
     
