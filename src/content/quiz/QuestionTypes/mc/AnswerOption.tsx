@@ -37,7 +37,7 @@ export default function AnswerOption({ children, index, checked }: AnswerMcProps
 
     const optionMatchingStyling = options.length > 5 ? "h-[3rem] sm:h-[4rem]" : "h-[3.5rem] sm:h-[4.5rem]"
 
-    const paragraphStyle = typeof children === "string" && children?.length >= 50 ? (children.length >= 100 ? "text-[0.4rem] sm:text-[0.5rem] lg:text-[0.6rem]" : "text-[0.5rem] sm:text-[0.6rem] lg:text-[0.8rem]") : "text-[0.5rem] sm:text-[0.6rem] lg:text-[0.8rem]"
+    const paragraphStyle = typeof children === "string" && children?.length >= 50 ? (children.length >= 100 ? "text-[0.4rem] sm:text-[0.5rem] lg:text-[0.6rem]" : "text-[0.5rem] sm:text-[0.6rem] lg:text-[0.7rem]") : "text-[0.5rem] sm:text-[0.6rem] lg:text-[0.7rem]"
 
   return (
     <div className={`flex items-center ${stylingChecked} lg:gap-x-4 sm:gap-x-3 gap-x-2 w-[100%]` }>

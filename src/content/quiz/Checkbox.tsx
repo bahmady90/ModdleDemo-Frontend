@@ -17,7 +17,7 @@ export default function Checkbox({checked, handleCheckboxChange} : CheckboxProps
             disabled={isSubmitted} 
             type="checkbox" 
             checked={checked} 
-            className="w-4 sm:w-5 lg:w-6 h-4 sm:h-5 lg:h-6 rounded-lg accent-gray-verydark disabled:cursor-not-allowed"
+            className="w-4 sm:w-5 h-4 sm:h-5 rounded-lg accent-gray-verydark disabled:cursor-not-allowed"
             onChange={handleCheckboxChange}
         >
         

@@ -29,7 +29,7 @@ export default function AnswerMatching({ children, index}: AnswerMcProps){
     const buttonStyling = isSubmitted ? answerStyle : "bg-gradient-to-r from-slate-50/70 to-gray-100/70"
 
 
-  	const paragraphStyle = typeof children === "string" && children?.length >= 60 ? (children.length >= 100 ? "text-[0.4rem] sm:text-[0.5rem] lg:text-[0.6rem]" : "text-[0.5rem] sm:text-[0.6rem] lg:text-[0.7rem]") : "text-[0.55rem] sm:text-[0.65rem] lg:text-[0.7rem]"
+  	const paragraphStyle = typeof children === "string" && children?.length >= 50 ? (children.length >= 100 ? "text-[0.4rem] sm:text-[0.5rem] lg:text-[0.6rem]" : "text-[0.5rem] sm:text-[0.6rem] lg:text-[0.7rem]") : "text-[0.5rem] sm:text-[0.6rem] lg:text-[0.7rem]"
 
   return (
     <div className={`flex items-center gap-x-2  lg:gap-x-4 sm:gap-x-3 w-full justify-self-center` }>

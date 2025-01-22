@@ -15,14 +15,14 @@ export default function RowHeader(){
 
     const len = question.question.length;
 
-    const questionStyle = `${len > 150? "text-[0.6rem] sm:text-[0.9rem]" : "text-[0.7rem] sm:text-[1rem]"}`
+    const questionStyle = `${len > 150? "text-[0.6rem] sm:text-[0.9rem] lg:text-[1rem]" : "text-[0.7rem] sm:text-[1rem] lg:text-[1.2rem]"}`
 
     const questionListElementStyle = `grid grid-cols-2 gap-x-2 ml-4 text-[0.9rem]`
 
 
     return (
         <div className="flex justify-center items-center flex-col gap-y-4 mb-5">
-            <p className={`${questionStyle} w-[90%] sm:w-[80%] text-center text-gray-700`}>{question.question}</p>
+            <p className={`${questionStyle} w-[90%] sm:w-[80%] text-center text-gray-700 `}>{question.question}</p>
             {list && 
                 <ul className={questionListElementStyle}>
                     {list.map((el, index) => 
