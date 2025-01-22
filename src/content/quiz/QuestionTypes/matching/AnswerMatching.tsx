@@ -19,7 +19,7 @@ export default function AnswerMatching({ children, index}: AnswerMcProps){
 
     const rightAnswer = getIsRightAnswerMatching(index);
 
-    const optionMatchingStyling = options.length > 5 ? "h-[3.5rem] sm:h-[4rem]" : "h-[4rem] sm:h-[4.5rem]"
+    const optionMatchingStyling = options.length > 5 ? "h-[3rem] sm:h-[4rem]" : "h-[3.5rem] sm:h-[4.5rem]"
     
     const answerStyle = rightAnswer
       ? "bg-gradient-to-r from-green-400/70 to-emerald-300/70"

@@ -45,7 +45,7 @@ function Quiz() {
     
 
     return (
-      <main className=" min-h-svh">
+      <main className="min-h-svh">
         <SubHeader/>
         <RowHeader/>
         <div className="w-[95%] grid grid-rows-2 sm:grid-rows-1 sm:grid-cols-[1fr_1fr] h-fit mt-[3%] sm:ml-[5%] gap-x-[5%] mb-2 gap-y-6">

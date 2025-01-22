@@ -83,7 +83,7 @@ export default function QuizBottom(){
               <div className={`${displayGrade} flex gap-x-20 items-center`}>
                 <p className={`${displayGrade} text-[1.5rem] text-gray-verydark font-semibold`}>Ergebnis: {percentageGrade}</p>
                 <button 
-                  className={`${displayGrade} animate-bounce animate-infinite hover:animate-none lg:text-[1.5rem] rounded-full px-5 py-3 bg-gradient-to-r from-gray-dark to-gray-verydark text-gray-light hover:from-gray-50 hover:to-gray-light hover:text-gray-verydark hover:border-[2px] hover:border-gray-verydark`}
+                  className={`${displayGrade} animate-bounce animate-infinite lg:text-[1.5rem] rounded-full px-5 py-3 bg-gradient-to-r from-gray-dark to-gray-verydark text-gray-light hover:from-gray-50 hover:to-gray-light hover:text-gray-verydark hover:border-[2px] hover:border-gray-verydark`}
                   onClick={resetQuiz}
                   >Neustarten</button>
               </div>

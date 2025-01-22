@@ -22,7 +22,7 @@ export default function RowHeader(){
 
     return (
         <div className="flex justify-center items-center flex-col gap-y-4 mb-5">
-            <p className={`${questionStyle} w-[90%] sm:w-[60%] text-center text-gray-700`}>{question.question}</p>
+            <p className={`${questionStyle} w-[90%] sm:w-[80%] text-center text-gray-700`}>{question.question}</p>
             {list && 
                 <ul className={questionListElementStyle}>
                     {list.map((el, index) => 
