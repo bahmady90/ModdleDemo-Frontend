@@ -10,14 +10,14 @@ export default function FilterType({filterByType, setFilterByType} : FormFilterT
          
     return(
         <div 
-            className=" text-start font-semibold text-[1.2rem] flex items-center justify-center">  
+            className=" text-center font-semibold text-[1.2rem] flex items-center justify-center">  
             <label>
                 Typ:
             </label>
             <select  
                 value={(filterByType)}
                 onChange={e => setFilterByType(e.target.value)}
-                className={`text-[0.8rem] text-start p-1 rounded-lg outline-none border-[1px]  font-normal focus:border-2 focus:border-gray-verydark `}
+                className={`text-[0.8rem] p-1 rounded-lg outline-none border-[1px] text-center font-normal focus:border-2 focus:border-gray-verydark `}
             >   
                 <option value={""}>*</option>
                 <option value="mc">mc</option>

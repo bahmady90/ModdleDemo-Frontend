@@ -13,7 +13,7 @@ export default function AnswerNumber(){
     
     return (
         
-        <p className="text-sm">{answer}</p>
+        <p className="text-[0.875rem] sm:text-[1rem] lg:text-[1.2rem]">{answer}</p>
        
     )
 

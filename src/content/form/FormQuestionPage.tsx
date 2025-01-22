@@ -4,12 +4,14 @@ import SelectQuestionType from "./SelectQuestionType";
 import Answers from "./Answers";
 import RightAnswers from "./RightAnswers";
 import DivideLine from "./DivideLine";
+import { useFormContext } from "../../context/form-context";
+import SubHeader from "../../SubHeader";
 
 
 import { Toaster } from 'react-hot-toast';
 import { useForm } from "./hooks/useForm";
-import { useFormContext } from "../../context/form-context";
-import SubHeader from "../../SubHeader";
+import SelectLF from "./SelectLF";
+
 
 
 
@@ -36,14 +38,14 @@ export default function FormQuestionPage(){
                 className="w-full h-full flex flex-col items-center gap-y-[3rem] font-sans"
                 onSubmit={id ? handleUpdate : handleSubmit}
             >
-                <DivideLine/>
-                <div className="w-[70%] grid grid-cols-2">
+                <div className="w-[70%] flex gap-x-8 justify-center">
                     <SelectType
                         label="Fragentyp"
                     />
                     <SelectQuestionType
                         label="Fragentyp (die Frage selbst)"
                     />
+                    {id && <SelectLF/>}
                 </div>
                 <DivideLine/>
                 <Question />

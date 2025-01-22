@@ -59,6 +59,7 @@ export type Action =
     {type: "SET_ANSWER_NUMBER", payload: string} |
     {type: "SET_RIGHTANSWER_TEXT", payload: string} |
     {type: "SET_RIGHTANSWER", payload: Array<number>} |
+    {type: "SET_LF", payload: string} |
     {type: "RESET_FORMSTATE"} 
 
 
@@ -402,6 +403,13 @@ function formReducer(state: FormState, action: Action): FormState {
                 ...state,
                 question: action.payload
             }
+        
+        case "SET_LF":
+            return {
+                ...state,
+                lf: Number(action.payload)
+            }
+        
         case "CHANGE_INITIALVALUE_FORM":{
             const {lf, type, question, id, rightAnswers, answers } = action.payload;
             return {

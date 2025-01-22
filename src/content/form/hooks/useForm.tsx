@@ -11,7 +11,7 @@ export function useForm(){
 
     const {getQuestions} = useQuestionsOverview();
 
-    const {imageURL, answerText, questionType, questionText, type, options, answersMC, answersMatching, answerNumber, rightAnswers, id, dispatch} = useFormContext();
+    const {imageURL, answerText, questionType, questionText, type, options, answersMC, answersMatching, answerNumber, rightAnswers, id, lf: lernFeld , dispatch} = useFormContext();
 
     const { lf } = useParams(); 
 
@@ -170,11 +170,11 @@ export function useForm(){
         : { type: "", question: "" }; 
 
 
-        const fullQuestion : Row  = type === "mc" ? { id: id as number , lf: lfNumber, type,  question, answers: answersMC, rightAnswers} :
-                                    type === "matching" ?  {id: id as number, lf: lfNumber, type,  question, answers: answersMatching, rightAnswers} :
-                                    type === "text" ? {id: id as number , lf: lfNumber, type, question, answers: answerText, rightAnswers: [0] } :
-                                    type === "number" ? {id: id as number , lf: lfNumber, type, question, answers: answerNumber, rightAnswers} : {
-                                        id: id as number , lf: lfNumber, question, type: "", rightAnswers: rightAnswers
+        const fullQuestion : Row  = type === "mc" ? { id: id as number , lf: lernFeld as number, type,  question, answers: answersMC, rightAnswers} :
+                                    type === "matching" ?  {id: id as number, lf: lernFeld as number, type,  question, answers: answersMatching, rightAnswers} :
+                                    type === "text" ? {id: id as number , lf: lernFeld as number, type, question, answers: answerText, rightAnswers: [0] } :
+                                    type === "number" ? {id: id as number , lf: lernFeld as number, type, question, answers: answerNumber, rightAnswers} : {
+                                        id: id as number , lf: lernFeld as number, question, type: "", rightAnswers: rightAnswers
                                     }
         
         dispatch({type: "SET_LOADING_TRUE", payload: "Frage wird geändert..."})

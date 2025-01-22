@@ -10,8 +10,8 @@ export default function QuestionOverwiev(){
 
     return(
 
-        <ul className=" bg-gray-50 grid grid-cols-4 grid-rows-5 sm:h-[25rem] sm:w-[25rem] 
-            self-start justify-self-start ml-[5%] rounded-lg border-[1px] border-gray-verydark">
+        <ul className=" bg-gray-50 grid grid-cols-4 grid-rows-5 h-[90%] sm:h-[100%] w-[70%]  sm:w-[80%] min-h-[15rem] sm:min-h-[20rem] lg:min-h-[25rem]
+            self-start justify-self-center sm:justify-self-start sm:ml-[5%] sm:mr-0 rounded-lg border-[1px] border-gray-verydark p-1 sm:p-2">
                 
             {data!.map((question, index) => {
                 console.log(question)

@@ -33,7 +33,7 @@ export default function InputBoxMatching({index} : InputBoxNumberProps){
             disabled={isSubmitted} 
             type="text" 
             value={value} 
-            className="text-center w-7 h-5 border-black border-[1px] rounded-lg focus:ring-1 focus:ring-slate-400 outline-none text-[0.6rem] disabled:cursor-not-allowed"
+            className="text-center w-6 sm:w-8 h-5 sm:h-6 border-black border-[1px] rounded-lg focus:ring-1 focus:ring-slate-400 outline-none text-[0.6rem] disabled:cursor-not-allowed"
             onChange={handleInputboxChange}
         >
         

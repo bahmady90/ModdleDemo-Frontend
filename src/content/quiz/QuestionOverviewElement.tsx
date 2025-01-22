@@ -21,7 +21,7 @@ export default function QuestionOverviewElement({questionSeen, index} : Question
 
     const questionDivStyle = questionSeen ? "bg-gray-verydark" : "bg-gray-50";
 
-    const currentQuestionStyle = questionNumber === index ? "lg:w-[3rem] lg:h-[4rem] border-[2px]" : "lg:w-[2rem] lg:h-[3rem] border-[1px]";
+    const currentQuestionStyle = questionNumber === index ? "w-[2rem] sm:w-[2.5rem] lg:w-[3rem] h-[2.5rem] sm:h-[3.5rem] lg:h-[4rem] border-[2px]" : "w-[1.5rem] h-[2rem] sm:w-[2rem] sm:h-[3rem] border-[1px]";
 
     const type = data![questionNumber].type;
 
@@ -41,7 +41,7 @@ export default function QuestionOverviewElement({questionSeen, index} : Question
                 justify-self-center rounded-lg grid grid-rows-2  border-gray-verydark rounded-b-none cursor-warning hover:opacity-70`}
             onClick={handleClick}
             >
-            <p className={`self-center justify-self-center ${paragraphStyle} font-semibold opacity-100`}>{index + 1}</p>
+            <p className={`text-[0.7rem] sm:text-[1rem] self-center justify-self-center ${paragraphStyle} font-semibold opacity-100`}>{index + 1}</p>
             <div className={`w-full h-full self-center justify-self-center ${questionDivStyle}`}></div>
         </div>
     )

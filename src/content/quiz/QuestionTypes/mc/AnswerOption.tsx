@@ -35,14 +35,14 @@ export default function AnswerOption({ children, index, checked }: AnswerMcProps
 
     const options = data![questionNumber].answers
 
-    const optionMatchingStyling = options.length > 5 ? "h-[2.5rem] sm:h-[3.5rem]" : "h-[4rem] sm:h-[4.5rem]"
+    const optionMatchingStyling = options.length > 5 ? "h-[3rem] sm:h-[4rem]" : "h-[3.5rem] sm:h-[4.5rem]"
 
-    const paragraphStyle =  (children?.length >= 60 ? "text-[0.4rem] sm:text-[0.6rem] lg:text-[0.7rem]" : "text-[0.5rem] sm:text-[0.7rem] lg:text-[0.8rem]")
+    const paragraphStyle = typeof children === "string" && children?.length >= 50 ? (children.length >= 100 ? "text-[0.4rem] sm:text-[0.5rem] lg:text-[0.6rem]" : "text-[0.5rem] sm:text-[0.6rem] lg:text-[0.8rem]") : "text-[0.5rem] sm:text-[0.6rem] lg:text-[0.8rem]"
 
   return (
-    <div className={`flex items-center ${stylingChecked} lg:gap-x-4 sm:gap-x-3 gap-x-2 w-full` }>
-      <button className={` ${buttonStyling} rounded-full w-[90%] border-gray-700 border-[1px] self-center text-center px-2 py-1 ${optionMatchingStyling} text-gray-900`}>
-        <p className={` ${paragraphStyle} max-w-[95%]`}>{children}</p>
+    <div className={`flex items-center ${stylingChecked} lg:gap-x-4 sm:gap-x-3 gap-x-2 w-[100%]` }>
+      <button className={` ${buttonStyling} rounded-full w-[90%] border-gray-700 border-[1px] self-center text-center px-2 py-1 sm:px-3 sm:py-2 lg:px-4 lg:py-2 ${optionMatchingStyling} text-gray-900`}>
+        <p className={` ${paragraphStyle} max-w-[90%]`}>{children}</p>
       </button>
       
       <Checkbox

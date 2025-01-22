@@ -32,28 +32,26 @@ export default function RowText(){
     return (
         
         <form 
-            className="rounded-sm grid"
+            className="rounded-sm grid min-w-[90%] sm:min-w-[100%]  min-h-[10rem] sm:min-h-[20rem] lg:min-h-[25rem] grid-rows-[1fr_6fr]"
             onSubmit={e => handleSubmit(e)}
             
             >
-            <label htmlFor="message" className="block mb-2 text-[1.2rem]  text-gray-700 dark:text-white justify-self-center">Deine Antwort:</label>
+            <label htmlFor="message" className="block mb-2 text-[0.875rem] sm:text-[1rem] lg:text-[1.2rem]  text-gray-700 dark:text-white justify-self-center">Deine Antwort:</label>
             <textarea
                 disabled={isSubmitted}
                 value={text} 
                 id="message"  
-                className={`block p-2.5  min-w-[35rem] min-h-[20rem] text-[0.8rem] text-gray-700 bg-gray-50 rounded-lg border border-gray-300 
+                className={`block p-2.5  text-[0.6rem] sm:text-[0.8rem] text-gray-700 bg-gray-50 rounded-lg border border-gray-300 
                 focus:border-gray-verydark outline-none  dark:focus:border-blue-500 resize-none ${errorStyle}`} 
                 placeholder="Schreibe deine Antwort hier..."
                 onChange={handleChange}
                 >
-                
-
             </textarea>
             <p className="text-red-600 hover:bg-gray-100 w-fit justify-self-center mt-[1%] rounded-xl px-2 py-1">{textError}</p>
-            <div className="justify-self-start ml-[8%] mt-[2%] flex items-center justify-center gap-x-2 w-full h-[5rem]">
+            <div className="justify-self-start lg:ml-[8%] lg:mt-[2%] flex items-center justify-center gap-x-2 w-full  h-[3.5rem] sm:h-[5rem]">
             {!isSubmitted ? (
                 <button 
-                    className=" px-6 py-3 rounded-full bg-gray-dark max-h-[3rem] max-w-[8rem]
+                    className="px-3 py-2 sm:px-6 sm:py-3 rounded-full bg-gray-dark max-h-[3rem] max-w-[8rem]
                     text-gray-100 text-[1rem] hover:bg-gray-light hover:text-gray-verydark hover:ring-1 hover:ring-gray-verydark disabled:cursor-not-allowed disabled:opacity-20"
                     disabled={disable}
                 >Einreichen</button>

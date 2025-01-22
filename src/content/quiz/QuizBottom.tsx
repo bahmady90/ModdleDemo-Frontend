@@ -65,7 +65,7 @@ export default function QuizBottom(){
 
 
     return (
-        <div className="flex flex-col items-center w-full gap-y-8 justify-self-center pb-8 mt-8">
+        <div className="flex flex-col items-center w-full gap-y-8 justify-self-center pb-8 mt-4 sm:mt-8">
             <div className="flex gap-x-4 justify-self-center items-center">
               {/* <p className="mr-8">Score:{score}</p> */}
                 <button
@@ -79,17 +79,17 @@ export default function QuizBottom(){
                   onClick={handleIncrement}
                   >{'>'}</button>
             </div>
-            <div className="flex w-[80%] justify-around items-center mt-8">
+            <div className="flex w-[80%] justify-around items-center mt-4 sm:mt-8">
               <div className={`${displayGrade} flex gap-x-20 items-center`}>
                 <p className={`${displayGrade} text-[1.5rem] text-gray-verydark font-semibold`}>Ergebnis: {percentageGrade}</p>
                 <button 
-                  className={`${displayGrade} animate-bounce animate-infinite lg:text-[1.5rem] rounded-full px-5 py-3 bg-gradient-to-r from-gray-dark to-gray-verydark text-gray-light hover:from-gray-50 hover:to-gray-light hover:text-gray-verydark hover:border-[2px] hover:border-gray-verydark`}
+                  className={`${displayGrade} animate-bounce animate-infinite hover:animate-none lg:text-[1.5rem] rounded-full px-5 py-3 bg-gradient-to-r from-gray-dark to-gray-verydark text-gray-light hover:from-gray-50 hover:to-gray-light hover:text-gray-verydark hover:border-[2px] hover:border-gray-verydark`}
                   onClick={resetQuiz}
                   >Neustarten</button>
               </div>
               <button
                 onClick={handleSubmitQuiz}
-                className={`${displayBeendenButton} px-5 py-4 rounded-full bg-rose-500 hover:bg-rose-100 text-gray-light hover:ring-1 hover:ring-rose-700 hover:text-red-900`}
+                className={`${displayBeendenButton} px-3 lg:px-5 py-2 lg:py-4 rounded-full bg-rose-500 hover:bg-rose-100 text-gray-50 hover:ring-1 hover:ring-rose-700 hover:text-red-900`}
               >Beenden
               </button>
             </div> 

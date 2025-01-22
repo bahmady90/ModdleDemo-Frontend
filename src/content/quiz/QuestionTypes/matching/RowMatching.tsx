@@ -11,7 +11,7 @@ export default function RowMatching(){
 
     return (
         
-            <ul className="flex flex-col gap-y-2 w-full sm:w-[70%]">
+            <ul className="flex flex-col gap-y-2 w-[90%] lg:w-[70%]">
                 {answers.map((answer, index) => 
                 <AnswerMatching 
                     key={index}

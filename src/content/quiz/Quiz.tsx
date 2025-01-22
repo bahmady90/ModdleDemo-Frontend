@@ -48,8 +48,8 @@ function Quiz() {
       <main className=" min-h-svh">
         <SubHeader/>
         <RowHeader/>
-        <div className="w-[95%] sm:grid sm:grid-cols-[1fr_1fr] h-fit mt-[3%] ml-[5%] gap-x-[5%] mb-2">
-          <div className="flex justify-end items-center min-h-full"> 
+        <div className="w-[95%] grid grid-rows-2 sm:grid-rows-1 sm:grid-cols-[1fr_1fr] h-fit mt-[3%] sm:ml-[5%] gap-x-[5%] mb-2 gap-y-6">
+          <div className="flex justify-center lg:justify-end items-center min-h-full"> 
               {row.type === "mc" && 
                 <RowMc/>
                 } 
