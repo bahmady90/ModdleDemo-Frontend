@@ -29,7 +29,7 @@ export default function Home(){
             <Modal openModal={openModalAdminLogin}>
                 <AdminLogin/>
             </Modal>
-            <main className="w-full h-full">
+            <main className="grid">
                 
                 <ul className="grid grid-cols-3 mt-2 
                         grid-rows-[repeat(2,_8.5rem)] sm:grid-rows-[repeat(3,_11rem)] 
