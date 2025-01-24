@@ -24,7 +24,7 @@ export default function App(){
         
         <div className="min-h-screen flex flex-col w-full">
             <Header/>
-                <main className="flex-grow pt-3 sm:pt-6 lg:pt-8 w-full h-screen bg-gray-50">
+                <main className="flex-grow pt-3 sm:pt-6 lg:pt-8 w-full  bg-gray-50 dark:bg-dark-very-dark-grey">
                     <BrowserRouter>
                         <Routes>
                             <Route path="*" element={<NotFound />} />

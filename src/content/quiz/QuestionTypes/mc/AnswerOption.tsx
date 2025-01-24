@@ -29,7 +29,10 @@ export default function AnswerOption({ children, index, checked }: AnswerMcProps
     const answerStyle = (isRightAnswer === true || isRightAnswer === null) ?  "bg-gradient-to-r from-green-400/70 to-emerald-300/70" : "bg-gradient-to-r from-red-400/70 to-rose-300/70";
 
 
-    const buttonStyling = isSubmitted ? answerStyle : "bg-gradient-to-r from-slate-50/70 to-gray-100/70"
+    const buttonStyling = isSubmitted
+      ? answerStyle
+      : "bg-slate-100/70 dark:bg-dark-dark-grey/50";
+
 
   	const stylingChecked = checked? "ml-5" : ""
 
@@ -41,7 +44,7 @@ export default function AnswerOption({ children, index, checked }: AnswerMcProps
 
   return (
     <div className={`flex items-center ${stylingChecked} lg:gap-x-4 sm:gap-x-3 gap-x-2 w-[100%]` }>
-      <button className={` ${buttonStyling} rounded-full w-[90%] border-gray-700 border-[1px] self-center text-center px-2 py-1 sm:px-3 sm:py-2 lg:px-4 lg:py-2 ${optionMatchingStyling} text-gray-900`}>
+      <button className={` ${buttonStyling} rounded-full w-[90%] border-gray-700 border-[1px] dark:text-white self-center text-center px-2 py-1 sm:px-3 sm:py-2 lg:px-4 lg:py-2 ${optionMatchingStyling} text-gray-900`}>
         <p className={` ${paragraphStyle} max-w-[90%]`}>{children}</p>
       </button>
       

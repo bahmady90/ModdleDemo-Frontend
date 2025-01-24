@@ -70,20 +70,20 @@ export default function QuizBottom(){
               {/* <p className="mr-8">Score:{score}</p> */}
                 <button
                   disabled={startOfQuiz}  
-                  className="w-8 h-8 sm:w-12 sm:h-12 lg:w-14 lg:h-14 rounded-full bg-gray-dark text-gray-light hover:bg-gray-light hover:ring-1 hover:ring-gray-verydark cursor-warning hover:text-black"
+                  className="w-8 h-8 sm:w-12 sm:h-12 lg:w-14 lg:h-14 rounded-full bg-gray-dark dark:bg-dark-gray-medium text-gray-light hover:bg-gray-light dark:hover:bg-gray-light hover:ring-1 hover:ring-gray-verydark cursor-warning hover:text-black"
                   onClick={handleDecrement}
                   >{'<'}</button>
                 <button
                   disabled={endOfQuiz}
-                  className="w-8 h-8 sm:w-12 sm:h-12 lg:w-14 lg:h-14  rounded-full bg-gray-dark text-gray-light hover:bg-gray-light hover:ring-1 hover:ring-gray-verydark cursor-warning hover:text-black"
+                  className="w-8 h-8 sm:w-12 sm:h-12 lg:w-14 lg:h-14  rounded-full bg-gray-dark dark:bg-dark-gray-medium text-gray-light hover:bg-gray-light dark:hover:bg-gray-light hover:ring-1 hover:ring-gray-verydark cursor-warning hover:text-black"
                   onClick={handleIncrement}
                   >{'>'}</button>
             </div>
             <div className="flex w-[80%] justify-around items-center mt-4 sm:mt-8">
               <div className={`${displayGrade} flex gap-x-20 items-center`}>
-                <p className={`${displayGrade} text-[1.5rem] text-gray-verydark font-semibold`}>Ergebnis: {percentageGrade}</p>
+                <p className={`${displayGrade} text-[1.5rem] text-gray-verydark dark:text-gray-light font-semibold`}>Ergebnis: {percentageGrade}</p>
                 <button 
-                  className={`${displayGrade} animate-bounce animate-infinite lg:text-[1.5rem] rounded-full px-5 py-3 bg-gradient-to-r from-gray-dark to-gray-verydark text-gray-light hover:from-gray-50 hover:to-gray-light hover:text-gray-verydark hover:border-[2px] hover:border-gray-verydark`}
+                  className={`${displayGrade} animate-bounce animate-infinite lg:text-[1.5rem] rounded-full px-5 py-3 bg-gray-dark dark:bg-dark-gray-medium text-gray-light hover:bg-gray-light dark:hover:bg-gray-light hover:text-gray-verydark hover:border-[2px] hover:border-gray-verydark`}
                   onClick={resetQuiz}
                   >Neustarten</button>
               </div>

@@ -14,7 +14,7 @@ function DropdownMenu({lf, disabled} : DropDownMenuProps) {
 
 
     const [isOpen, setIsOpen] = useState(false);
-    const dropdownRef = useRef<HTMLDivElement | null>(null);
+    const dropdownRef = useRef<HTMLUListElement | null>(null);
     const {isAdmin} = useFormContext();
 
     console.log("disabled: " + disabled)
@@ -55,34 +55,32 @@ function DropdownMenu({lf, disabled} : DropDownMenuProps) {
                 <span className="w-[2px] sm:w-[3px] md:w-[4px] lg:w-[5px] h-[2px] sm:h-[3px] md:h-[4px] lg:h-[5px] rounded-full bg-gray-500"></span>
             </button>
             {isOpen && (
-                <div className="absolute top-1 sm:top-7 sm:left-[50%] left-[30%] mt-2  w-[90%] sm:w-[50%] bg-gray-50 border border-gray-200 rounded-lg shadow-lg z-1000 " ref={dropdownRef}>
-                    <ul className="py-1 text-[0.5rem] sm:text-sm text-gray-700">
-                        <li className="hover:bg-gray-100 cursor-pointer px-2 py-2">
-                            {disabled ? 
+                <ul className="overflow-hidden absolute bg-gray-50 dark:bg-dark-dark-grey border border-gray-200 dark:border-gray-500 rounded-lg shadow-lg z-1000absolute top-1 sm:top-7 sm:left-[50%] left-[30%] mt-2 w-[90%] sm:w-[50%] text-[0.5rem] sm:text-sm lg:text-[0.9rem] text-gray-700 dark:text-gray-light " ref={dropdownRef}>
+                    <li className="hover:bg-gray-100 cursor-pointer px-2 py-2 hover:text-blue-dark">
+                        {disabled ? 
 
-                                <div    className="cursor-not-allowed" onClick={() => toast.error("Zu diesem Lernfeld gibt es noch keine Fragen. Aber kommt noch 🤞")}>Quiz</div> :
-                                <Link to={`/0${lf}/Quiz`} className="block text-gray-700">Quiz</Link>  
-                            }
-                               
-                        </li>
-                        <li className="hover:bg-gray-100 cursor-pointer px-2 py-2">
-                            {isAdmin ? <Link to={`/0${lf}/Fragen-bearbeiten`} className="block text-gray-700">Fragen bearbeiten</Link> :
-                                <div className="flex gap-x-1 cursor-not-allowed" onClick={() => toast.error("Dafür benötigst du den Admin-Zugang. Kontaktiere mich, wenn deine Intentionen reinen Herzens sind!")}>
-                                    <p className="block text-gray-700">Fragen bearbeiten</p> 
-                                    <MdSecurity className="text-gray-dark w-2 h-2 sm:w-5 sm:h-5"/>
-                                </div>
-                            }
-                        </li>
-                        <li className="hover:bg-gray-100 cursor-pointer px-2 py-2">
-                            {isAdmin ? <Link to={`/0${lf}/Frage-hinzufügen`} className="block text-gray-700">Frage hinzufügen</Link> :
-                                <div className="flex gap-x-1 cursor-not-allowed" onClick={() => toast.error("Dafür benötigst du den Admin-Zugang. Kontaktiere mich, wenn deine Intentionen reinen Herzens sind!")}>
-                                    <p className="block text-gray-700">Frage hinzufügen</p> 
-                                    <MdSecurity className="text-gray-dark w-2 h-2 sm:w-5 sm:h-5"/>
-                                </div>
-                            }
-                        </li>
-                    </ul>
-                </div>
+                            <div    className="cursor-not-allowed" onClick={() => toast.error("Zu diesem Lernfeld gibt es noch keine Fragen. Aber kommt noch 🤞")}>Quiz</div> :
+                            <Link to={`/0${lf}/Quiz`} className="block">Quiz</Link>  
+                        }
+                            
+                    </li>
+                    <li className="hover:bg-gray-100 cursor-pointer px-2 py-2 hover:text-blue-dark">
+                        {isAdmin ? <Link to={`/0${lf}/Fragen-bearbeiten`} className="block">Fragen bearbeiten</Link> :
+                            <div className="flex gap-x-1 cursor-not-allowed" onClick={() => toast.error("Dafür benötigst du den Admin-Zugang. Kontaktiere mich, wenn deine Intentionen reinen Herzens sind!")}>
+                                <p className="block">Fragen bearbeiten</p> 
+                                <MdSecurity className="text-gray-dark w-2 h-2 sm:w-5 sm:h-5"/>
+                            </div>
+                        }
+                    </li>
+                    <li className="hover:bg-gray-100 cursor-pointer px-2 py-2 hover:text-blue-dark">
+                        {isAdmin ? <Link to={`/0${lf}/Frage-hinzufügen`} className="block">Frage hinzufügen</Link> :
+                            <div className="flex gap-x-1 cursor-not-allowed" onClick={() => toast.error("Dafür benötigst du den Admin-Zugang. Kontaktiere mich, wenn deine Intentionen reinen Herzens sind!")}>
+                                <p className="block">Frage hinzufügen</p> 
+                                <MdSecurity className="text-gray-dark w-2 h-2 sm:w-5 sm:h-5"/>
+                            </div>
+                        }
+                    </li>
+                </ul> 
             )}
         </main>
 

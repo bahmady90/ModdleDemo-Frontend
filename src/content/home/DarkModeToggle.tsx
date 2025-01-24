@@ -1,11 +1,17 @@
+type DarkModeToggleProps = {
+    setDarkmode: (darkmode: boolean) => void,
+    darkmode: boolean
+}
 
-export default function DarkModeTuggle() {
+
+export default function DarkModeTuggle({setDarkmode, darkmode} : DarkModeToggleProps) {
 
    
     return (
       
-    
-        <svg fill="currentColor" className="h-[1.5rem] w-[1.5rem] sm:w-[2rem] sm:h-[2rem] cursor-pointer text-gray-verydark hover:text-gray-dark" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg">
+        <svg
+            onClick={() => setDarkmode(!darkmode)}
+            fill="currentColor" className="h-[1.5rem] w-[1.5rem] sm:w-[2rem] sm:h-[2rem] cursor-pointer text-gray-verydark hover:text-gray-dark" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg">
             <g id="SVGRepo_bgCarrier" strokeWidth="0"/>
             <g id="SVGRepo_tracerCarrier" strokeLinecap="round" strokeLinejoin="round"/>
             <g id="SVGRepo_iconCarrier">

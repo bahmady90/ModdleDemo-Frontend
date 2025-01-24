@@ -5,7 +5,7 @@ import Lernfeld from "./Lernfeld";
 import { useFormContext } from "../../context/form-context";
 
 const lernfelder = [
-    { name: "LF-01:", src: "LF1.png", title: "Das Unternehmen und die eigene Rolle im Betrieb beschreiben", lf: 1, disabled: false },
+    { name: "LF-01:", src: "LF1.png", title: "Das Unternehmen und die eigene Rolle im Betrieb beschreiben", lf: 1, disabled: false},
     { name: "LF-02:", src: "LF2.png", title: "Arbeitsplätze nach Kundenwunsch ausstatten", lf: 2, disabled: false   },
     { name: "LF-03:", src: "LF3.jpg", title: "Clients in Netzwerke einbinden", lf: 3, disabled: true   },
     { name: "LF-04:", src: "LF4.jpg", title: "Schutzbedarfsanalyse im eigenen Arbeitsbereich durchführen", lf: 4, disabled: true   },
@@ -15,6 +15,7 @@ const lernfelder = [
     { name: "LF-08:", src: "LF8.jpg", title: "Daten systemübergreifend bereitstellen", lf: 8, disabled: true   },
     { name: "LF-09:", src: "LF9.jpg", title: "Netzwerke und Dienste bereitstellen", lf: 9, disabled: true   }
 ];
+
 
 
 
@@ -29,9 +30,9 @@ export default function Home(){
             <Modal openModal={openModalAdminLogin}>
                 <AdminLogin/>
             </Modal>
-            <main className="grid">
+            <main className="grid max-h-full">
                 
-                <ul className="grid grid-cols-3 mt-2 
+                <ul className="grid grid-cols-3 mt-2 mb-10
                         grid-rows-[repeat(2,_8.5rem)] sm:grid-rows-[repeat(3,_11rem)] 
                         md:grid-rows-[repeat(3,_14rem)] lg:grid-rows-[repeat(3,_18rem)] 
                         xl:grid-rows-[repeat(3,_24rem)]
