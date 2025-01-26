@@ -70,12 +70,12 @@ export default function QuizBottom(){
               {/* <p className="mr-8">Score:{score}</p> */}
                 <button
                   disabled={startOfQuiz}  
-                  className="w-8 h-8 sm:w-12 sm:h-12 lg:w-14 lg:h-14 rounded-full bg-gray-dark dark:bg-dark-gray-medium text-gray-light hover:bg-gray-light dark:hover:bg-gray-light hover:ring-1 hover:ring-gray-verydark cursor-warning hover:text-black"
+                  className="w-10 h-10 sm:w-12 sm:h-12 lg:w-14 lg:h-14 rounded-full bg-gray-dark dark:bg-dark-gray-medium text-gray-light hover:bg-gray-light dark:hover:bg-gray-light hover:ring-1 hover:ring-gray-verydark cursor-warning hover:text-black"
                   onClick={handleDecrement}
                   >{'<'}</button>
                 <button
                   disabled={endOfQuiz}
-                  className="w-8 h-8 sm:w-12 sm:h-12 lg:w-14 lg:h-14  rounded-full bg-gray-dark dark:bg-dark-gray-medium text-gray-light hover:bg-gray-light dark:hover:bg-gray-light hover:ring-1 hover:ring-gray-verydark cursor-warning hover:text-black"
+                  className="w-10 h-10 sm:w-12 sm:h-12 lg:w-14 lg:h-14  rounded-full bg-gray-dark dark:bg-dark-gray-medium text-gray-light hover:bg-gray-light dark:hover:bg-gray-light hover:ring-1 hover:ring-gray-verydark cursor-warning hover:text-black"
                   onClick={handleIncrement}
                   >{'>'}</button>
             </div>
@@ -89,7 +89,7 @@ export default function QuizBottom(){
               </div>
               <button
                 onClick={handleSubmitQuiz}
-                className={`${displayBeendenButton} px-3 lg:px-5 py-2 lg:py-4 rounded-full bg-rose-500 hover:bg-rose-100 text-gray-50 hover:ring-1 hover:ring-rose-700 hover:text-red-900`}
+                className={`${displayBeendenButton} sm:text-[1rem] px-4 sm:px-5 lg:px-7 py-2 sm:py-4 lg:py-5 rounded-full bg-rose-500 hover:bg-rose-100 text-gray-50 hover:ring-1 hover:ring-rose-700 hover:text-red-900`}
               >Beenden
               </button>
             </div> 

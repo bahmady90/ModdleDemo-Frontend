@@ -84,7 +84,7 @@ export default function RightAnswers(){
         return (
             <div className="grid grid-cols-2 w-[50%] ml-[20%]">
                 <div className="self-start flex flex-col w-full justify-center">
-                    <label className="text-[0.7rem]">Bitte gebe die Nummer der zu ankreuzenden Option/en ein (z.B: 1,3)</label>
+                    <label className="text-[0.7rem] dark:text-white">Bitte gebe die Nummer der zu ankreuzenden Option/en ein (z.B: 1,3)</label>
                     <input 
                         type="text"  
                         value={valueMC} 

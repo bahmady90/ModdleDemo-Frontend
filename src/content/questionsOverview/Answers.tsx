@@ -40,7 +40,7 @@ const Answers: React.FC<AnswersProps> = ({ question }) => {
     
 
     return (
-        <div className="flex w-[35%] h-full pl-1 items-center gap-x-2">
+        <div className="flex w-[20%] h-full pl-1 items-center gap-x-2">
             <p className="w-[90%]">{formatString(answersPreview)}</p>
             {(question.type === "mc" || question.type === "matching") && (
                 <svg viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg" className="w-6 h-6 cursor-pointer hover:text-gray-dark" onClick={() => setIsOpen(true)} ref={svgButtonRef}>

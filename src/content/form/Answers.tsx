@@ -16,10 +16,10 @@ export default function Answers(){
     const indexNumber = errors.findIndex((err) => err.type === "answerNumber")
     const indexText = errors.findIndex((err) => err.type === "answerText")
         
-    const errorStyle = (type === "mc" && ((errors[indexMC]?.message !== "" && checkErros) ? "border-red-500 focus:border-red-500": "border-gray-300 focus:border-gray-600")) ||
-                        (type === "matching" && ((errors[indexMatching]?.message !== "" && checkErros) ? "border-red-500 focus:border-red-500": "border-gray-300 focus:border-gray-600")) ||
-                        (type === "number" && ((errors[indexNumber]?.message !== "" && checkErros) ? "border-red-500 focus:border-red-500": "border-gray-300 focus:border-gray-600")) ||
-                        (type === "text" && ((errors[indexText]?.message !== "" && checkErros) ? "border-red-500 focus:border-red-500": "border-gray-300 focus:border-gray-600"))
+    const errorStyle = (type === "mc" && ((errors[indexMC]?.message !== "" && checkErros) ? "border-red-500 focus:border-red-600": "border-gray-300 focus:border-gray-600")) ||
+                        (type === "matching" && ((errors[indexMatching]?.message !== "" && checkErros) ? "border-red-500 focus:border-red-600": "border-gray-300 focus:border-gray-600")) ||
+                        (type === "number" && ((errors[indexNumber]?.message !== "" && checkErros) ? "border-red-500 focus:border-red-600": "border-gray-300 focus:border-gray-600")) ||
+                        (type === "text" && ((errors[indexText]?.message !== "" && checkErros) ? "border-red-500 focus:border-red-600": "border-gray-300 focus:border-gray-600"))
 
 
     function setMcOrMatching(e : ChangeEvent<HTMLInputElement>, index: number){
@@ -110,7 +110,7 @@ export default function Answers(){
             <ul className="flex flex-col gap-y-4">
             {arrayToMap?.map((option, index)  =>
                 <div className="flex gap-x-3" key={index}>
-                    <label className="text-sm">Antwortsoption {index + 1}: </label>
+                    <label className="text-sm dark:text-white">Antwortsoption {index + 1}: </label>
                     <input  value={option.answer} onChange={(e) => setMcOrMatching(e, index)} className={`${basicInputStyles} ${errorStyle} flex-1`}></input>
                     <Button
                         type="button" 
@@ -132,7 +132,7 @@ export default function Answers(){
         return (
             <div className="grid w-[50%]">
                 <div className="flex flex-col gap-y-4">
-                <label className="text-sm">Bezeichnung des Ergebnisses</label>
+                <label className="text-sm dark:text-white">Bezeichnung des Ergebnisses</label>
                 <input 
                     value={answerNumber?.answer} 
                     className={`${basicInputStyles} ${errorStyle}`}
@@ -150,7 +150,7 @@ export default function Answers(){
         return (
             <div className="grid w-[50%]">
                 <div className="flex flex-col">
-                <label className="text-sm">Richtige Antwort:</label>
+                <label className="text-sm dark:text-white">Richtige Antwort:</label>
                 <input 
                     value={answerText?.answer} 
                     className={`${basicInputStyles} ${errorStyle}`}

@@ -60,7 +60,9 @@ export type Action =
     {type: "SET_RIGHTANSWER_TEXT", payload: string} |
     {type: "SET_RIGHTANSWER", payload: Array<number>} |
     {type: "SET_LF", payload: string} |
-    {type: "RESET_FORMSTATE"} 
+    {type: "RESET_FORMSTATE"} |
+    {type: "SET_APIONE", payload: string} |
+    {type: "SET_THEMA", payload: string}
 
 
 
@@ -89,6 +91,8 @@ export type FormState = {
     openModalAdminLogin: boolean,
     adminKey: string,
     isAdmin: boolean,
+    apOne: boolean,
+    thema: string
 
     
 
@@ -133,7 +137,9 @@ const initialState : FormState= {
     lf: null,
     openModalAdminLogin: localStorage.getItem("isAdmin") === "true" ? false : true ,
     adminKey: "",
-    isAdmin: localStorage.getItem("isAdmin") === "true" ? true : false 
+    isAdmin: localStorage.getItem("isAdmin") === "true" ? true : false,
+    apOne: false,
+    thema: "" 
     
 
 
@@ -411,7 +417,7 @@ function formReducer(state: FormState, action: Action): FormState {
             }
         
         case "CHANGE_INITIALVALUE_FORM":{
-            const {lf, type, question, id, rightAnswers, answers } = action.payload;
+            const {lf, type, question, id, rightAnswers, answers, apOne, thema } = action.payload;
             return {
                 ...state,
                 type: type,
@@ -425,7 +431,10 @@ function formReducer(state: FormState, action: Action): FormState {
                 answerText: type === "text" ? answers as AnswerText : {answer: "", text: ""},
                 rightAnswers: rightAnswers ? rightAnswers : [],
                 id: id ? id : null,
-                lf: lf
+                lf: lf,
+                apOne: apOne,
+                thema: thema
+
 
             }
         }
@@ -445,7 +454,20 @@ function formReducer(state: FormState, action: Action): FormState {
                 ...state,
                 isAdmin: action.payload
             }
-        
+        case "SET_APIONE":
+            {
+                const boolean = action.payload === "true" ? true : false
+                return {
+                    ...state,
+                    apOne: boolean
+                }
+            }
+            
+        case "SET_THEMA":
+            return {
+                ...state,
+                thema: action.payload
+            }
             
         
             
@@ -461,7 +483,7 @@ export default function FormContextProvider({children} : FormContextProviderProp
 
     const [{questions, question, errors, type, questionType, 
         questionText, options, imageURL, answersMC, answersMatching, answerNumber, answerText, 
-        rightAnswers, checkErros, loading, fetchError, id, openModalAdminLogin, lf, adminKey, isAdmin}, dispatch] = useReducer(formReducer, initialState);
+        rightAnswers, checkErros, loading, fetchError, id, openModalAdminLogin, lf, adminKey, isAdmin, apOne, thema}, dispatch] = useReducer(formReducer, initialState);
 
     
 
@@ -488,6 +510,8 @@ export default function FormContextProvider({children} : FormContextProviderProp
         openModalAdminLogin,
         adminKey,
         isAdmin,
+        apOne,
+        thema,
         dispatch
     }
 

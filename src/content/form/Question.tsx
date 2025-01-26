@@ -43,7 +43,7 @@ export default function Question(){
         
         <div className="grid w-fit min-w-[50%] h-fit">
             <div className="flex flex-col">
-            <label className="text-sm  ml-2 w-fit">Frage:</label>
+            <label className="text-sm  ml-2 w-fit dark:text-white">Frage:</label>
             <input  
                 value={questionText} 
                 onChange={handleInputChange} 
@@ -53,12 +53,12 @@ export default function Question(){
             {errors[index].message && <ErrorMessage>{errors[index].message}</ErrorMessage>}
             {questionType === "list" && 
                 <div className="flex flex-col justify-center min-w-full">
-                    <label className="text-sm my-3">Bitte gebe Optionen ein</label>
+                    <label className="text-sm my-3 dark:text-white">Bitte gebe Optionen ein</label>
                     <OptionsComponent/>
                 </div>
             }
             {questionType === "image" && 
-                <div className="flex flex-col">
+                <div className="flex flex-col dark:text-white">
                     <label>Lade hier das Bild hoch (implementiere ich später):</label>
                     <input type="text" value={imageURL} onChange={handleImageURL} className={`${basicInputStyles}`}></input>
                 </div>

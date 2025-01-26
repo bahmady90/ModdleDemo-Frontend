@@ -1,17 +1,19 @@
+import useQuestionsOverview from "../../questionsOverview/hooks/useQuestionsOverview";
+import toast from 'react-hot-toast';
+
+
 import { useParams } from "react-router-dom";
 import { useFormContext } from "../../../context/form-context";
 import { BASE_URL } from "../../../context/quiz-context";
 import { Question, Row } from "../../../types";
-import toast from 'react-hot-toast';
 import { FormEvent, useState } from "react";
-import useQuestionsOverview from "../../questionsOverview/hooks/useQuestionsOverview";
 
 
 export function useForm(){
 
     const {getQuestions} = useQuestionsOverview();
 
-    const {imageURL, answerText, questionType, questionText, type, options, answersMC, answersMatching, answerNumber, rightAnswers, id, lf: lernFeld , dispatch} = useFormContext();
+    const {imageURL, answerText, questionType, questionText, type, options, answersMC, answersMatching, answerNumber, rightAnswers, id, lf: lernFeld, thema, apOne, dispatch} = useFormContext();
 
     const { lf } = useParams(); 
 
@@ -123,11 +125,11 @@ export function useForm(){
         : { type: "", question: "" }; 
 
 
-        const fullQuestion : Row  = type === "mc" ? { lf: lfNumber, type,  question, answers: answersMC, rightAnswers} :
-                                    type === "matching" ?  {lf: lfNumber, type,  question, answers: answersMatching, rightAnswers} :
-                                    type === "text" ? {lf: lfNumber, type, question, answers: answerText, rightAnswers: [0] } :
-                                    type === "number" ? {lf: lfNumber, type, question, answers: answerNumber, rightAnswers} : {
-                                        lf: lfNumber, question, type: "", rightAnswers: rightAnswers
+        const fullQuestion : Row  = type === "mc" ? { lf: lfNumber, type,  question, answers: answersMC, rightAnswers, thema: thema, apOne: apOne} :
+                                    type === "matching" ?  {lf: lfNumber, type,  question, answers: answersMatching, rightAnswers, thema: thema, apOne: apOne} :
+                                    type === "text" ? {lf: lfNumber, type, question, answers: answerText, rightAnswers: [0], thema: thema, apOne: apOne } :
+                                    type === "number" ? {lf: lfNumber, type, question, answers: answerNumber, rightAnswers, thema: thema, apOne: apOne} : {
+                                        lf: lfNumber, question, type: "", rightAnswers: rightAnswers, thema: thema, apOne: apOne
                                     }
         dispatch({type: "SET_LOADING_TRUE", payload: "Frage wird hinzugefügt..."})
         try{
@@ -170,11 +172,11 @@ export function useForm(){
         : { type: "", question: "" }; 
 
 
-        const fullQuestion : Row  = type === "mc" ? { id: id as number , lf: lernFeld as number, type,  question, answers: answersMC, rightAnswers} :
-                                    type === "matching" ?  {id: id as number, lf: lernFeld as number, type,  question, answers: answersMatching, rightAnswers} :
-                                    type === "text" ? {id: id as number , lf: lernFeld as number, type, question, answers: answerText, rightAnswers: [0] } :
-                                    type === "number" ? {id: id as number , lf: lernFeld as number, type, question, answers: answerNumber, rightAnswers} : {
-                                        id: id as number , lf: lernFeld as number, question, type: "", rightAnswers: rightAnswers
+        const fullQuestion : Row  = type === "mc" ? { id: id as number , lf: lernFeld as number, type,  question, answers: answersMC, rightAnswers, thema: thema, apOne: apOne} :
+                                    type === "matching" ?  {id: id as number, lf: lernFeld as number, type,  question, answers: answersMatching, rightAnswers, thema: thema, apOne: apOne} :
+                                    type === "text" ? {id: id as number , lf: lernFeld as number, type, question, answers: answerText, rightAnswers: [0], thema: thema, apOne: apOne } :
+                                    type === "number" ? {id: id as number , lf: lernFeld as number, type, question, answers: answerNumber, rightAnswers, thema: thema, apOne: apOne} : {
+                                        id: id as number , lf: lernFeld as number, question, type: "", rightAnswers: rightAnswers, thema: thema, apOne: apOne
                                     }
         
         dispatch({type: "SET_LOADING_TRUE", payload: "Frage wird geändert..."})

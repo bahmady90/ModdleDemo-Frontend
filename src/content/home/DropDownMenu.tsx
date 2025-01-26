@@ -46,14 +46,18 @@ function DropdownMenu({lf, disabled} : DropDownMenuProps) {
         <>
         <Toaster/>
         <main className="relative flex justify-end">
-            <button
+            <div 
+                className="w-[30%] flex justify-end items-center"
                 onClick={() => setIsOpen(!isOpen)}
-                className="flex flex-col justify-end items-end mb-5 gap-y-[1px] mr-2 sm:mr-3 lg:mr-4 cursor-pointer"
             >
-                <span className="w-[2px] sm:w-[3px] md:w-[4px] lg:w-[5px] h-[2px] sm:h-[3px] md:h-[4px] lg:h-[5px] rounded-full bg-gray-500"></span>
-                <span className="w-[2px] sm:w-[3px] md:w-[4px] lg:w-[5px] h-[2px] sm:h-[3px] md:h-[4px] lg:h-[5px] rounded-full bg-gray-500"></span>
-                <span className="w-[2px] sm:w-[3px] md:w-[4px] lg:w-[5px] h-[2px] sm:h-[3px] md:h-[4px] lg:h-[5px] rounded-full bg-gray-500"></span>
-            </button>
+                <button
+                    className="flex flex-col justify-end items-end mb-5 gap-y-[1px] mr-2 sm:mr-3 lg:mr-4 cursor-pointer"
+                >
+                    <span className="w-[2px] sm:w-[3px] md:w-[4px] lg:w-[5px] h-[2px] sm:h-[3px] md:h-[4px] lg:h-[5px] rounded-full bg-gray-500 dark:group-hover:bg-white"></span>
+                    <span className="w-[2px] sm:w-[3px] md:w-[4px] lg:w-[5px] h-[2px] sm:h-[3px] md:h-[4px] lg:h-[5px] rounded-full bg-gray-500 dark:group-hover:bg-white"></span>
+                    <span className="w-[2px] sm:w-[3px] md:w-[4px] lg:w-[5px] h-[2px] sm:h-[3px] md:h-[4px] lg:h-[5px] rounded-full bg-gray-500 dark:group-hover:bg-white"></span>
+                </button>
+            </div>
             {isOpen && (
                 <ul className="overflow-hidden absolute bg-gray-50 dark:bg-dark-dark-grey border border-gray-200 dark:border-gray-500 rounded-lg shadow-lg z-1000absolute top-1 sm:top-7 sm:left-[50%] left-[30%] mt-2 w-[90%] sm:w-[50%] text-[0.5rem] sm:text-sm lg:text-[0.9rem] text-gray-700 dark:text-gray-light " ref={dropdownRef}>
                     <li className="hover:bg-gray-100 cursor-pointer px-2 py-2 hover:text-blue-dark">

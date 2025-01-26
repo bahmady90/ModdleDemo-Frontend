@@ -46,7 +46,9 @@ export type Row = {
     question: Question,
     rightAnswers: RightAnswers,
     type: string,
-    lf: number
+    lf: number,
+    thema: string,
+    apOne: boolean
 }
 
 export type Rows = Array<Row>;

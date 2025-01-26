@@ -55,7 +55,7 @@ export default function Header(){
             </h1>
             <div className="flex sm:hidden justify-end mr-4 gap-x-4">
                 <button className="text-gray-verydark hover:text-gray-dark text-[0.9rem] sm:text-[1.1rem] px-3 py-1 rounded-full bg-gray-50 hover:bg-white border-[1px] border-gray-medium mr-1 sm:mr-0">Logout</button>
-                <IoMenu className="cursor-pointer w-6 h-6" onClick={() => setOpenMenu(true)}/>
+                <IoMenu className="cursor-pointer w-6 h-6 text-black dark:text-gray-light" onClick={() => setOpenMenu(true)}/>
                 {openMenu && 
                     <ul className="absolute w-[20%] top-10 gap-x-4 right-[1%] px-2 py-1 border border-gray-200 text-[0.5rem] bg-gray-50 sm:text-sm text-gray-700 rounded-2xl gap-y-5" ref={dropdownRef}>
                         <li className="hover:bg-cyan-50 cursor-pointer  py-2 flex justify-center items-center rounded-t-2xl">
@@ -64,7 +64,7 @@ export default function Header(){
                         <li className="hover:bg-cyan-50 cursor-pointer  py-2 flex justify-center items-center">
                             {darkmode ? 
                                 <DarkModeTuggle setDarkmode={setDarkmode} darkmode={darkmode}/> :
-                                <BsSunFill onClick={() => setDarkmode(!darkmode)}/>
+                                <BsSunFill  className="h-[1.5rem] w-[1.5rem] sm:w-[2rem] sm:h-[2rem] cursor-pointer text-yellow-300"onClick={() => setDarkmode(!darkmode)}/>
                             }
                             
                         </li>

@@ -38,7 +38,7 @@ export function formatInput(value: string){
 }
 
 export function formatString(value: string){
-    const result = value.length > 60 ?  value.slice(0,60) + "..." : value;
+    const result = value.length > 30 ?  value.slice(0,30) + "..." : value;
     return result
 }
 

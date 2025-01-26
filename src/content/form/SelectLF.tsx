@@ -8,14 +8,14 @@ export default function SelectLF(){
 
     return (
         <div className="flex gap-x-1 items-center justify-self-center self-start">
-            <label>
+            <label className="dark:text-white">
                 Lernfeld
             </label>
             <select 
                 value={lf?.toString()} 
                 onChange={(e) => dispatch({type: "SET_LF", payload: e.target.value})}
                 
-                className="bg-gray-50 border border-gray-300 text-gray-900 text-sm outline-none rounded-lg focus:ring-gray-verydark focus:border-gray-verydark block p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                className="bg-gray-50 border border-gray-300 text-gray-900 text-sm outline-none rounded-lg focus:ring-gray-verydark focus:border-gray-verydark block p-2.5 dark:bg-gray-800 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                 >
                 <option value="1">1</option>
                 <option value="2" >2</option>
