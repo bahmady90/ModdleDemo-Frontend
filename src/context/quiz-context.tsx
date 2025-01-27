@@ -1,9 +1,9 @@
 import { createContext, Dispatch, ReactNode, useContext, useReducer } from "react";
 
 
-export const BASE_URL = "http://localhost:3000";
+/* export const BASE_URL = "http://localhost:3000"; */
 
-/* export const BASE_URL = "https://moodle-demo-backend.vercel.app"; */
+export const BASE_URL = "https://moodle-demo-backend.vercel.app";
 
 export type Answer = {
     answer: string,
