@@ -26,7 +26,7 @@ export function useEvaluate(){
             let evaluate = false;
             if(Array.isArray(rightAnswers)){
             for(let i = 0; i < rightAnswers.length; i++){
-                if(rightAnswers[i] === index){
+                if(rightAnswers[i] - 1 === index){
                     if(checked){
                         isRightAnswer = true;
                         evaluate = true;
@@ -127,7 +127,7 @@ export function useEvaluate(){
             const rightAnswers = data![questionNumber].rightAnswers;
             let isRightAnswer = false;
             if(Array.isArray(rightAnswers)){
-            if(rightAnswers[index] + 1 === answerNumber){
+            if(rightAnswers[index] === answerNumber){
                 isRightAnswer = true;
             }}
             return isRightAnswer

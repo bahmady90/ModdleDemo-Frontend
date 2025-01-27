@@ -35,7 +35,7 @@ export default function RightAnswers(){
         // but the same time enable the user to use "," wich resultet in these computations
         if(type === "mc"){
             setValueMC(input);
-            const numberArray = input.split(",").filter(item => item.trim() !== "").map(item => Number(item) - 1).filter(item => !isNaN(item));
+            const numberArray = input.split(",").filter(item => item.trim() !== "").map(item => Number(item)).filter(item => !isNaN(item));
             dispatch({type: "SET_RIGHTANSWER", payload: numberArray });
             console.log(rightAnswers)
             if((numberArray.length === 0) && checkErros){
@@ -46,7 +46,7 @@ export default function RightAnswers(){
         }
         else if(type === "matching"){
             setValueMatching(input);
-            const numberArray = input.split(",").filter(item => item.trim() !== "").map(item => Number(item) - 1).filter(item => !isNaN(item));
+            const numberArray = input.split(",").filter(item => item.trim() !== "").map(item => Number(item)).filter(item => !isNaN(item));
             dispatch({type: "SET_RIGHTANSWER", payload: numberArray});
             if((numberArray.length === 0) && checkErros){
                 dispatch({type: "SET_ERROR_RIGHTANSWER"})
