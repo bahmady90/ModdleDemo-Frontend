@@ -67,6 +67,7 @@ export default function QuestionsOverviewPage(){
     
 
     const arrayToMap = isBeingFiltered ? filteredQuestions : questions
+    const sortedArrayToMap = arrayToMap.sort((a,b) => (a.id as number) - (b.id as number))
 
 
     
@@ -125,7 +126,7 @@ export default function QuestionsOverviewPage(){
             
             
             <ul className="rounded-lg mb-8 text-slate-700 w-full">
-            {arrayToMap.map(((question, index) =>{
+            {sortedArrayToMap.map(((question, index) =>{
 
                 const bgStyle = (index + 1) % 2 === 0 ? "bg-white dark:bg-dark-very-dark-grey" : "bg-gray-100 dark:bg-dark-dark-grey "
                 
@@ -138,7 +139,7 @@ export default function QuestionsOverviewPage(){
                         <Answers question={question}/>
                         <div className="w-[18%] text-center">{question.thema ? question.thema : "LEER"}</div>
                         <div className="w-[7%] text-end">{question.apOne === true ? "true" : "false"}</div>
-                        <div className="w-[10%] h-full flex items-center justify-end">{question.rightAnswers.toString()}</div>
+                        <div className="w-[10%] h-full flex items-center justify-center">{question.rightAnswers.toString()}</div>
                         <div className="flex ml-[5%] gap-x-3">
                             <MdDelete className="text-slate-500 dark:text-gray-medium hover:text-gray-verydark dark:hover:text-gray-light cursor-pointer w-7 h-7" onClick={(() => handleDelete(question.id as number))}/>
                             <CiEdit className="text-slate-500 dark:text-gray-medium hover:text-gray-verydark dark:hover:text-gray-light cursor-pointer w-7 h-7" onClick={() => handleUpdate(question as Row)}/>
