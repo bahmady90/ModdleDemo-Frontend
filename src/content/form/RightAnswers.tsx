@@ -107,7 +107,7 @@ export default function RightAnswers(){
         return(
             <div className="grid grid-cols-2  w-[50%] ml-[20%]">
                 <div className="flex flex-col">
-                    <label className="text-[0.7rem]">Bitte gebe die richtige Reihenfolge der Optionen ein (z.b 3,1,2,4 bei 4 Optionen)</label>
+                    <label className="text-[0.7rem] dark:text-white">Bitte gebe die richtige Reihenfolge der Optionen ein (z.b 3,1,2,4 bei 4 Optionen)</label>
                     <div className="flex flex-col w-full">
                         <input 
                             type="text" 

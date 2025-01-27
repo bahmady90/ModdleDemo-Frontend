@@ -42,7 +42,7 @@ export default function OptionsComponent() {
             <ul className="flex flex-col gap-y-4 min-w-full">
             {options.map((option, index)  =>
                 <div className="flex gap-x-3 min-w-full" key={index}>
-                    <label className="text-sm">Option {index + 1}: </label>
+                    <label className="text-sm dark:text-white">Option {index + 1}: </label>
                     <input  value={option} onChange={(e) => handleOptionsChange(e, index)} className={`${basicInputStyles} ${errorStyle} flex-1`}></input>   
                   <Button
                     type="button" 
