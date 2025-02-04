@@ -16,10 +16,10 @@ export default function Answers(){
     const indexNumber = errors.findIndex((err) => err.type === "answerNumber")
     const indexText = errors.findIndex((err) => err.type === "answerText")
         
-    const errorStyle = (type === "mc" && ((errors[indexMC]?.message !== "" && checkErros) ? "border-red-500 focus:border-red-600": "border-gray-300 focus:border-gray-600")) ||
-                        (type === "matching" && ((errors[indexMatching]?.message !== "" && checkErros) ? "border-red-500 focus:border-red-600": "border-gray-300 focus:border-gray-600")) ||
-                        (type === "number" && ((errors[indexNumber]?.message !== "" && checkErros) ? "border-red-500 focus:border-red-600": "border-gray-300 focus:border-gray-600")) ||
-                        (type === "text" && ((errors[indexText]?.message !== "" && checkErros) ? "border-red-500 focus:border-red-600": "border-gray-300 focus:border-gray-600"))
+    const errorStyle = (type === "mc" && ((errors[indexMC]?.message !== "" && checkErros) ? "border-red-500 focus:border-red-600": "border-gray-300 focus:border-gray-light")) ||
+                        (type === "matching" && ((errors[indexMatching]?.message !== "" && checkErros) ? "border-red-500 focus:border-red-600": "border-gray-300 focus:border-gray-light")) ||
+                        (type === "number" && ((errors[indexNumber]?.message !== "" && checkErros) ? "border-red-500 focus:border-red-600": "border-gray-300 focus:border-gray-light")) ||
+                        (type === "text" && ((errors[indexText]?.message !== "" && checkErros) ? "border-red-500 focus:border-red-600": "border-gray-300 focus:border-gray-light"))
 
 
     function setMcOrMatching(e : ChangeEvent<HTMLInputElement>, index: number){

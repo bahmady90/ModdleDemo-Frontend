@@ -135,7 +135,7 @@ export default function RightAnswers(){
         return(
             <div className="grid grid-cols-2  w-[50%]">
                 <div className="self-start flex flex-col gap-y-2">
-                    <label>Bitte gebe die Lösung ein:</label>
+                    <label className="text-sm dark:text-white">Bitte gebe die Lösung ein:</label>
                     <input 
                         type="number"
                         step="any" 

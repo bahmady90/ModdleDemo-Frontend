@@ -17,7 +17,7 @@ import { useForm } from "./hooks/useForm";
 
 
 
-export const basicInputStyles = "text-[0.7rem] px-2 py-2 rounded-lg outline-none border-[1px] dark:text-white dark:bg-gray-800";
+export const basicInputStyles = "text-[0.7rem] px-2 py-2 rounded-lg outline-none dark:text-white dark:bg-gray-800 border-[1px] border-gray-300 focus:border-gray-verydark dark:focus:border-gray-light";
 
 export const basicButtonStyles = "max-w-[11rem] px-3 py-2 rounded-full bg-gray-dark text-gray-light hover:bg-gray-light hover:ring-1 hover:ring-gray-verydark cursor-warning hover:text-black"
 
